@@ -8,12 +8,12 @@
 
 | 特性 | `OneSmartProMCX.yaml` | `MihomoSmartAIO.yaml` | `MihomoSmartProMax.yaml` | `THESmart.yaml` | `MihomoSmartProPlus.yaml` | `smart.yaml` | `OneSmart_Config.yaml` | `OneSmart_Lite_Config.yaml` | `clash-fallback-smart-std.yaml` | `clash-all-smart.yaml` | `clash-all-fallback-smart.yaml` | `mihomo_smart.yaml` |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **大小** | 38.1 KB | 30.2 KB | 23.6 KB | 37.3 KB | 24.1 KB | 13.0 KB | 20.1 KB | 12.4 KB | 17.7 KB | 15.1 KB | 18.2 KB | 12.7 KB |
+| **大小** | 38.2 KB | 30.2 KB | 23.6 KB | 37.3 KB | 24.1 KB | 13.0 KB | 20.1 KB | 12.4 KB | 17.7 KB | 15.1 KB | 18.2 KB | 12.7 KB |
 | **混合端口** | 7893 | 7893 | 7893 | 7893 | 7893 | 7890 | 7893 | 7893 | 7893 | 7893 | 7893 | 0 |
 | **面板地址** | 0.0.0.0:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | - | 127.0.0.1:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | - |
 | **运行模式** | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule |
 | **TUN** | ✅ | 🚫 | 🚫 | ✅ | 🚫 | ✅ | 🚫 | 🚫 | ✅ | ✅ | ✅ | ✅ |
-| **策略组** | **38** | **69** | **41** | **66** | **41** | **28** | **31** | **16** | **36** | **38** | **57** | **21** |
+| **策略组** | **39** | **69** | **41** | **66** | **41** | **28** | **31** | **16** | **36** | **38** | **57** | **21** |
 | **规则数** | **90** | **52** | **45** | **49** | **44** | **23** | **36** | **21** | **42** | **43** | **48** | **22** |
 
 ## 📄 配置详情
@@ -242,10 +242,10 @@
 ### 👤 edison
 
 #### 📝 OneSmartProMCX.yaml
-- **路径**: `edison/OneSmartProMCX.yaml` | **大小**: 38.1 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/edison/OneSmartProMCX.yaml)
+- **路径**: `edison/OneSmartProMCX.yaml` | **大小**: 38.2 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/edison/OneSmartProMCX.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (38个)</summary>
+<summary>🔍 策略组 (39个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -255,6 +255,7 @@
 | 👆 Streaming | `select` |
 | 👆 Google | `select` |
 | 👆 Microsoft | `select` |
+| 👆 Bing | `select` |
 | 👆 Speedtest | `select` |
 | 👆 TikTok | `select` |
 | 👆 Emby | `select` |
@@ -268,8 +269,7 @@
 | 🔧 香港-故转 | `fallback` |
 | 🔧 台湾-故转 | `fallback` |
 | 🔧 日本-故转 | `fallback` |
-| 🔧 狮城-故转 | `fallback` |
-| ... | 还有 18 个 |
+| ... | 还有 19 个 |
 </details>
 
 ---

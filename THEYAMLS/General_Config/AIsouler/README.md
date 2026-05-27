@@ -7,14 +7,16 @@
 ## 📄 配置详情
 
 #### 📝 mihomoconfig.yaml
-- **路径**: `mihomoconfig.yaml` | **大小**: 21.4 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/AIsouler/mihomoconfig.yaml)
+- **路径**: `mihomoconfig.yaml` | **大小**: 21.8 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/AIsouler/mihomoconfig.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (44个)</summary>
+<summary>🔍 策略组 (46个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
 | 👆 默认代理 | `select` |
+| ♻️ 自动选择 | `url-test` |
+| ⚖️ 负载均衡 | `load-balance` |
 | 👆 AI | `select` |
 | 👆 YouTube | `select` |
 | 👆 FCM | `select` |
@@ -32,7 +34,5 @@
 | 👆 Spotify | `select` |
 | 👆 TikTok | `select` |
 | 👆 Netflix | `select` |
-| 👆 广告拦截 | `select` |
-| 👆 直连 | `select` |
-| ... | 还有 24 个 |
+| ... | 还有 26 个 |
 </details>
