@@ -85,7 +85,6 @@ dns:
     - '119.29.29.29'
   nameserver: *foreignDNS
   nameserver-policy:
-    '*': 'system'
     'rule-set:cn': *chinaDNS
   direct-nameserver:
     - 'system'
