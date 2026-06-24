@@ -1,59 +1,59 @@
 <div align="center">
 
-# 🐱 𝕄𝕀ℍ𝕆𝕄𝕆 的千种配置
+# 🐱 MIHOMO A Thousand Different Configurations
 
-**Mihomo / Clash Meta 核心专用配置精选合集**
+**Mihomo / Clash Meta Curated Collection of Core-Specific Configurations**
 
-每日自动构建 · 严选优质资源 · 纯净开箱即用
+Daily Automated Builds · Carefully Selected High-Quality Resources · Clean and Ready to Use Out of the Box
 
 [![Stars](https://img.shields.io/github/stars/HenryChiao/mihomo_yamls?style=flat-square&logo=github&label=Stars&color=2ea44f)](https://github.com/HenryChiao/mihomo_yamls/stargazers)
 [![Forks](https://img.shields.io/github/forks/HenryChiao/mihomo_yamls?style=flat-square&logo=github&label=Forks&color=181717)](https://github.com/HenryChiao/mihomo_yamls/network/members)
 [![Issues](https://img.shields.io/github/issues/HenryChiao/mihomo_yamls?style=flat-square&logo=github&color=0969da)](https://github.com/HenryChiao/mihomo_yamls/issues)
 [![License](https://img.shields.io/github/license/HenryChiao/mihomo_yamls?style=flat-square&color=546e7a)](./LICENSE)
 
-[📖 开始使用](./THEDOC/THE_REAL_README.md) &nbsp;|&nbsp; [⬇️ 客户端下载](./THEDOC/CLIENTS.md) &nbsp;|&nbsp; [💐 致谢名单](./THEDOC/CREDITS.md) &nbsp;|&nbsp; [💬 反馈问题](https://github.com/HenryChiao/mihomo_yamls/issues)
+[📖 Get Started](./THEDOC/THE_REAL_README.md) &nbsp;|&nbsp; [⬇️ Client Download](./THEDOC/CLIENTS.md) &nbsp;|&nbsp; [💐 Acknowledgments](./THEDOC/CREDITS.md) &nbsp;|&nbsp; [💬 Report a Problem](https://github.com/HenryChiao/mihomo_yamls/issues)
 
 </div>
 
 <br/>
 
-## 🌟 项目亮点
+## 🌟 Project Highlights
 
-- **每日更新**：自动化脚本每日抓取，确保配置与规则保持最新。
-- **严格分类**：拒绝杂乱，提供清晰的分类逻辑，满足不同场景需求。
-- **透明来源**：[数据源自开源社区](./THEDOC/CREDITS.md)，整合优质资源，纯净无后门。
-- **开箱即用**：专为新手优化，无需复杂配置，导入即可畅享流畅体验。
+- **Updated Daily**：Automated scripts perform daily crawls to ensure that configurations and rules remain up to date.
+- **Strict Classification**：We eliminate clutter, provide a clear classification system, and meet the needs of different scenarios.
+- **Transparent Sources**：[Data sourced from the open-source community](./THEDOC/CREDITS.md)，Integrates high-quality resources; clean and free of backdoors.
+- **Ready to Use Right Out of the Box**：Optimized for beginners—no complicated setup required; just import and enjoy a smooth experience.
 
 ---
 
-## 🧭 快速导航
+## 🧭 Quick Navigation
 
 <table width="100%">
     <tr>
         <td width="25%" align="center">
-            <h3>📖 使用文档</h3>
-            <p>从下载到进阶的全方位指南</p>
+            <h3>📖 User Guide</h3>
+            <p>A Comprehensive Guide from Download to Advanced Use</p>
             <a href="./THEDOC/THE_REAL_README.md">
                 <img src="https://img.shields.io/badge/配置分类-Categories-blue?style=for-the-badge&logo=readthedocs" alt="Docs">
             </a>
         </td>
         <td width="25%" align="center">
-            <h3>⬇️ 客户端清单</h3>
-            <p>全平台 Mihomo/Meta 客户端汇总</p>
+            <h3>⬇️ Client List</h3>
+            <p>Summary of Mihomo/Meta Clients Across All Platforms</p>
             <a href="./THEDOC/CLIENTS.md">
                 <img src="https://img.shields.io/badge/下载软件-Clients-2ea44f?style=for-the-badge&logo=android" alt="Clients">
             </a>
         </td>
         <td width="25%" align="center">
-            <h3>🛠️ 规则集说明</h3>
-            <p>深入了解分流机制与自定义</p>
+            <h3>🛠️ Rule Set Description</h3>
+            <p>An In-Depth Look at Traffic Distribution Mechanisms and Customization</p>
             <a href="./THEDOC/RULESET_README.md">
                 <img src="https://img.shields.io/badge/规则说明-RuleSets-orange?style=for-the-badge&logo=adblock" alt="Rules">
             </a>
         </td>
          <td width="25%" align="center">
-            <h3>💐 致谢与来源</h3>
-            <p>感谢上游开源项目的贡献</p>
+            <h3>💐 Acknowledgments and Sources</h3>
+            <p>Thank you to the contributors of the upstream open-source project</p>
             <a href="./THEDOC/CREDITS.md">
                 <img src="https://img.shields.io/badge/致谢名单-Credits-pink?style=for-the-badge&logo=github" alt="Credits">
             </a>
@@ -63,44 +63,42 @@
 
 ---
 
-## 🔰 新手指南
+## 🔰 Beginner's Guide
 
 > [!TIP]
-> **给新手的诚恳建议**
+> **Sincere Advice for Beginners**
 > 
-> 感谢各位大佬的热心推荐！如果您是初次接触，**强烈建议不要直接修改配置文件**。
-> <br>无论是使用订阅转换，还是直接套用本项目的托管模板，效果通常比自己手动修改更稳定、更流畅。
+> Thank you to everyone for your helpful recommendations! If you're new to this, **we strongly recommend that you do not modify the configuration file directly**.
+> <br>Whether you use subscription conversion or directly apply this project’s hosted template, the results are usually more stable and smoother than if you were to make the changes manually.
 
 ---
 
-## ⚠️ 免责声明
+## ⚠️ Disclaimer
 
 > [!CAUTION]
-> **禁止违规传播**
+> **Prohibited Unauthorized Distribution**
 > 
-> 禁止任何形式的转载或发布至 🇨🇳 中国大陆境内的任何公共平台。
-> <br>Any form of reprinting or posting to the 🇨🇳 mainland platform is prohibited.
+> Any form of reprinting or posting to the 🇨🇳 mainland platform is prohibited.
 
 > [!WARNING]
-> **合规使用警告**
+> **Compliance Warning**
 > 
-> 本项目仅供技术交流与学习，中国大陆用户请严格遵守《中华人民共和国网络安全法》及相关法律法规。
-> <br>Mainland China users please abide by the laws and regulations of your country.
+> Mainland China users please abide by the laws and regulations of your country.
 
 ---
 
 <div align="center">
 
-### 🤝 参与贡献与反馈
+### 🤝 Participation, Contributions, and Feedback
 
 **Life is a two-way street.**
-<br>遇到问题或有改进建议？欢迎提交 Issue。
+<br>Having a problem or a suggestion for improvement? Feel free to submit an issue.
 
-[🐛 提交 Bug](https://github.com/HenryChiao/mihomo_yamls/issues/new) &nbsp;&nbsp;&nbsp; [💡 提交建议](https://github.com/HenryChiao/mihomo_yamls/issues/new)
+[🐛 Submit Bug](https://github.com/HenryChiao/mihomo_yamls/issues/new) &nbsp;&nbsp;&nbsp; [💡 Submit a Suggestion](https://github.com/HenryChiao/mihomo_yamls/issues/new)
 
 <br/>
 
-**如果这个项目对您有帮助，请点亮右上角的 ⭐ Star 支持一下！**
+**If you found this project helpful, please click the button in the upper right corner ⭐ Star — show your support!**
 
 </div>
 <!-- AUTO_GENERATED_START -->
