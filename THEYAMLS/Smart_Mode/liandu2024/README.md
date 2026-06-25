@@ -19,7 +19,7 @@
 ## 📄 配置详情
 
 #### 📝 clash-fallback-smart-std.yaml
-- **路径**: `clash-fallback-smart-std.yaml` | **大小**: 17.7 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/liandu2024/clash-fallback-smart-std.yaml)
+- **路径**: `clash-fallback-smart-std.yaml` | **大小**: 17.7 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/liandu2024/clash-fallback-smart-std.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (36个)</summary>
@@ -50,7 +50,7 @@
 </details>
 
 #### 📝 clash-all-fallback-smart.yaml
-- **路径**: `clash-all-fallback-smart.yaml` | **大小**: 18.2 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/liandu2024/clash-all-fallback-smart.yaml)
+- **路径**: `clash-all-fallback-smart.yaml` | **大小**: 18.2 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/liandu2024/clash-all-fallback-smart.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (57个)</summary>
@@ -81,7 +81,7 @@
 </details>
 
 #### 📝 clash-all-smart.yaml
-- **路径**: `clash-all-smart.yaml` | **大小**: 15.1 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/liandu2024/clash-all-smart.yaml)
+- **路径**: `clash-all-smart.yaml` | **大小**: 15.1 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/liandu2024/clash-all-smart.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (38个)</summary>

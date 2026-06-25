@@ -4,7 +4,7 @@
 
 | 配置文件 (.conf) | 需要填写的订阅源 (Provider) | 操作 |
 | :--- | :--- | :--- |
-| **OneSmartProMCX.conf** | `$EN_KEY1`: 优质服务商<br>`$EN_KEY2`: 次优服务商<br>`$EN_KEY3`: 备用服务商<br>`$EN_KEY4`: 落地服务商 | [查看源码](https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/Smart_Mode/edison/OneSmartProMCX.conf) |
+| **OneSmartProMCX.conf** | `$EN_KEY1`: 优质服务商<br>`$EN_KEY2`: 次优服务商<br>`$EN_KEY3`: 备用服务商<br>`$EN_KEY4`: 落地服务商 | [查看源码](https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/Smart_Mode/edison/OneSmartProMCX.conf) |
 
 ---
 [🔙 返回总览](../README.md)

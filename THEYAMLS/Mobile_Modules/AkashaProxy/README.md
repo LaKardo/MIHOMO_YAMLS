@@ -7,7 +7,7 @@
 ## 📄 配置详情
 
 #### 📝 config.yaml
-- **路径**: `config.yaml` | **大小**: 8.2 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/Mobile_Modules/AkashaProxy/config.yaml)
+- **路径**: `config.yaml` | **大小**: 8.2 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/Mobile_Modules/AkashaProxy/config.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (20个)</summary>

@@ -4,7 +4,7 @@
 
 | 配置文件 (.conf) | 需要填写的订阅源 (Provider) | 操作 |
 | :--- | :--- | :--- |
-| **Clashmi.conf** | `$EN_KEY1`: 机场1<br>`$EN_KEY2`: 机场2<br>`$EN_KEY3`: 机场3 | [查看源码](https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/General_Config/bgpeer/Clashmi.conf) |
+| **Clashmi.conf** | `$EN_KEY1`: 机场1<br>`$EN_KEY2`: 机场2<br>`$EN_KEY3`: 机场3 | [查看源码](https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/General_Config/bgpeer/Clashmi.conf) |
 
 ---
 [🔙 返回总览](../README.md)

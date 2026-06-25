@@ -4,7 +4,7 @@
 
 | 配置文件 (.conf) | 需要填写的订阅源 (Provider) | 操作 |
 | :--- | :--- | :--- |
-| **Ayanami0_config_geo-lite.conf** | `$EN_KEY1`: α<br>`$EN_KEY2`: β<br>`$EN_KEY3`: γ<br>`$EN_KEY4`: δ | [查看源码](https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/General_Config/Ayanami0-configs/Ayanami0_config_geo-lite.conf) |
+| **Ayanami0_config_geo-lite.conf** | `$EN_KEY1`: α<br>`$EN_KEY2`: β<br>`$EN_KEY3`: γ<br>`$EN_KEY4`: δ | [查看源码](https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/General_Config/Ayanami0-configs/Ayanami0_config_geo-lite.conf) |
 
 ---
 [🔙 返回总览](../README.md)

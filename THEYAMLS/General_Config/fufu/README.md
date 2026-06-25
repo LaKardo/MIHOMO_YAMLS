@@ -7,7 +7,7 @@
 ## 📄 配置详情
 
 #### 📝 ConfigForClash.yaml
-- **路径**: `ConfigForClash.yaml` | **大小**: 49.3 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/fufu/ConfigForClash.yaml)
+- **路径**: `ConfigForClash.yaml` | **大小**: 49.3 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/fufu/ConfigForClash.yaml)
 - **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (62个)</summary>

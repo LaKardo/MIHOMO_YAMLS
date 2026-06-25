@@ -4,7 +4,7 @@
 
 | 配置文件 (.conf) | 需要填写的订阅源 (Provider) | 操作 |
 | :--- | :--- | :--- |
-| **smart.conf** | `$EN_KEY1`: Airport1 | [查看源码](https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/Smart_Mode/qichiyuhub/smart.conf) |
+| **smart.conf** | `$EN_KEY1`: Airport1 | [查看源码](https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/Smart_Mode/qichiyuhub/smart.conf) |
 
 ---
 [🔙 返回总览](../README.md)

@@ -7,7 +7,7 @@
 ## 📄 配置详情
 
 #### 📝 config.yaml
-- **路径**: `config.yaml` | **大小**: 12.8 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/qichiyuhub/config.yaml)
+- **路径**: `config.yaml` | **大小**: 12.8 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/qichiyuhub/config.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (26个)</summary>

@@ -4,7 +4,7 @@
 
 | 配置文件 (.conf) | 需要填写的订阅源 (Provider) | 操作 |
 | :--- | :--- | :--- |
-| **mihomo_smart.conf** | `$EN_KEY1`: link1<br>`$EN_KEY2`: link2<br>`$EN_KEY3`: link3<br>`$EN_KEY4`: link4 | [查看源码](https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/Smart_Mode/echs-top/mihomo_smart.conf) |
+| **mihomo_smart.conf** | `$EN_KEY1`: link1<br>`$EN_KEY2`: link2<br>`$EN_KEY3`: link3<br>`$EN_KEY4`: link4 | [查看源码](https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/Smart_Mode/echs-top/mihomo_smart.conf) |
 
 ---
 [🔙 返回总览](../README.md)

@@ -7,7 +7,7 @@
 ## 📄 配置详情
 
 #### 📝 config.yaml
-- **路径**: `config.yaml` | **大小**: 4.2 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/Mobile_Modules/BoxProxy/config.yaml)
+- **路径**: `config.yaml` | **大小**: 4.2 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/Mobile_Modules/BoxProxy/config.yaml)
 - **模式**: Rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (3个)</summary>

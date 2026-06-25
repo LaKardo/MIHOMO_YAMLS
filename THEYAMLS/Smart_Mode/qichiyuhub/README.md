@@ -7,7 +7,7 @@
 ## 📄 配置详情
 
 #### 📝 smart.yaml
-- **路径**: `smart.yaml` | **大小**: 13.0 KB | [查看源码](https://github.com/HenryChiao/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/qichiyuhub/smart.yaml)
+- **路径**: `smart.yaml` | **大小**: 13.0 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/qichiyuhub/smart.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (28个)</summary>

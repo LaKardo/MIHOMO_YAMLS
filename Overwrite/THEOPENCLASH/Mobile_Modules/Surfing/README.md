@@ -4,7 +4,7 @@
 
 | 配置文件 (.conf) | 需要填写的订阅源 (Provider) | 操作 |
 | :--- | :--- | :--- |
-| **config.conf** | `$EN_KEY1`: 1.主要地址<br>`$EN_KEY2`: 2.备用地址<br>`$EN_KEY3`: 3.额外地址 | [查看源码](https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/Mobile_Modules/Surfing/config.conf) |
+| **config.conf** | `$EN_KEY1`: 1.主要地址<br>`$EN_KEY2`: 2.备用地址<br>`$EN_KEY3`: 3.额外地址 | [查看源码](https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/Mobile_Modules/Surfing/config.conf) |
 
 ---
 [🔙 返回总览](../README.md)

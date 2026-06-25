@@ -4,8 +4,8 @@
 
 | 配置文件 (.conf) | 需要填写的订阅源 (Provider) | 操作 |
 | :--- | :--- | :--- |
-| **mihomoConfigLite.conf** | `$EN_KEY1`: provider1 | [查看源码](https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/General_Config/AIsouler/mihomoConfigLite.conf) |
-| **mihomoconfig.conf** | `$EN_KEY1`: provider1 | [查看源码](https://raw.githubusercontent.com/HenryChiao/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/General_Config/AIsouler/mihomoconfig.conf) |
+| **mihomoConfigLite.conf** | `$EN_KEY1`: provider1 | [查看源码](https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/General_Config/AIsouler/mihomoConfigLite.conf) |
+| **mihomoconfig.conf** | `$EN_KEY1`: provider1 | [查看源码](https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/main/Overwrite/THEOPENCLASH/General_Config/AIsouler/mihomoconfig.conf) |
 
 ---
 [🔙 返回总览](../README.md)
