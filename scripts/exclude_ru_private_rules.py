@@ -1,268 +1,379 @@
 #!/usr/bin/env python3
-"""Filter generated Mihomo/Clash rulesets with Anti-RU/Anti-Private exclusions.
-
-The script subtracts domain and CIDR exclusion sources from existing classical
-ruleset files. It is intentionally conservative for keyword/regex rules because
-blind text matching there causes many false positives.
-"""
-from __future__ import annotations
-
 import argparse
+import fnmatch
 import ipaddress
 import re
+import sys
+import urllib.request
+from bisect import bisect_right
 from pathlib import Path
-from typing import Iterable
-
-CIDR_RULES = {"IP-CIDR", "IP-CIDR6"}
 
 
-def read_tokens(paths: Iterable[str]) -> list[str]:
-    tokens: list[str] = []
-    for path_str in paths:
-        path = Path(path_str)
-        if not path.is_file():
-            raise FileNotFoundError(path)
-        text = path.read_text(encoding="utf-8", errors="ignore")
-        for raw in re.split(r"\s+", text):
-            token = raw.strip().strip('"').strip("'")
-            if not token or token.startswith(("#", ";")):
-                continue
-            token = token.split("#", 1)[0].split(";", 1)[0].strip()
-            if token:
-                tokens.append(token)
-    return tokens
+DOMAIN_EXCLUDE_SOURCES = [
+    "https://raw.githubusercontent.com/Davoyan/mihomo-rule-sets/main/rules/category-ru.lst",
+    "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.list",
+]
+
+CIDR_EXCLUDE_SOURCES = [
+    "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.list",
+    "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/ru.list",
+    "https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/GeoData/xream/geoip/ip2location.geoip.dat_text/ip2location.geoip_ru.txt",
+    "https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/GeoData/xream/geoip/ipinfo.geoip.dat_text/ipinfo.geoip_ru.txt",
+]
 
 
-def normalize_domain_token(token: str) -> tuple[str, str | re.Pattern[str]] | None:
-    """Return ('suffix', domain) or ('wildcard', compiled_regex)."""
-    token = token.strip().lower().strip('"').strip("'")
-    if not token:
-        return None
+DOMAIN_RULE_TYPES = {
+    "DOMAIN",
+    "DOMAIN-SUFFIX",
+    "DOMAIN-KEYWORD",
+    "DOMAIN-REGEX",
+}
 
-    if "," in token:
-        rule_type, value = token.split(",", 1)
-        rule_type = rule_type.strip().upper()
-        value = value.strip().lower().strip('"').strip("'")
-        if rule_type in {"DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-WILDCARD"}:
-            token = value
-        else:
-            return None
-
-    for prefix in ("domain:", "full:"):
-        if token.startswith(prefix):
-            token = token[len(prefix):]
-            break
-
-    if token.startswith("regexp:") or token.startswith("regex:"):
-        return None
-
-    if token.startswith("+."):
-        token = token[2:]
-    elif token.startswith("*."):
-        token = token[2:]
-    elif token.startswith("."):
-        token = token[1:]
-
-    token = token.strip(".")
-    if not token:
-        return None
-
-    if "*" in token:
-        escaped = re.escape(token).replace(r"\*", r"[^.]+")
-        return ("wildcard", re.compile(r"(^|\.)" + escaped + r"$", re.IGNORECASE))
-
-    return ("suffix", token)
+CIDR_RULE_TYPES = {
+    "IP-CIDR",
+    "IP-CIDR6",
+}
 
 
-def load_domain_excludes(paths: Iterable[str]) -> tuple[set[str], list[re.Pattern[str]]]:
-    suffixes: set[str] = set()
-    wildcards: list[re.Pattern[str]] = []
+def fetch_text(url: str) -> str:
+    req = urllib.request.Request(
+        url,
+        headers={"User-Agent": "MIHOMO_YAMLS RU/private exclusion filter"},
+    )
+    with urllib.request.urlopen(req, timeout=120) as response:
+        return response.read().decode("utf-8", "ignore")
 
-    for token in read_tokens(paths):
-        item = normalize_domain_token(token)
-        if not item:
+
+def split_source_tokens(text: str):
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+
+        if not line:
             continue
-        kind, value = item
-        if kind == "suffix":
-            suffixes.add(str(value))
+
+        if line.startswith("#") or line.startswith(";"):
+            continue
+
+        # YAML payload style:
+        # - DOMAIN-SUFFIX,example.com
+        line = re.sub(r"^\s*-\s*", "", line).strip()
+        line = line.strip("\"'")
+
+        # Many upstream lists are space-separated or line-separated.
+        for token in re.split(r"\s+", line):
+            token = token.strip().strip("\"'")
+            if token:
+                yield token
+
+
+def clean_domain(value: str) -> str:
+    value = value.strip().strip("\"'").lower()
+    value = value.rstrip(".")
+    return value
+
+
+def add_domain_token(token: str, suffixes: set[str], wildcards: set[str], regexes: set[str]):
+    token = token.strip().strip("\"'")
+
+    if not token:
+        return
+
+    if token.startswith("#") or token.startswith(";"):
+        return
+
+    # Clash/Mihomo classical format:
+    # DOMAIN,example.com
+    # DOMAIN-SUFFIX,example.com
+    # DOMAIN-REGEX,^example
+    parts = [p.strip() for p in token.split(",", 2)]
+
+    if len(parts) >= 2 and parts[0].upper() in DOMAIN_RULE_TYPES:
+        rule_type = parts[0].upper()
+        value = clean_domain(parts[1])
+
+        if not value:
+            return
+
+        if rule_type in {"DOMAIN", "DOMAIN-SUFFIX"}:
+            # Для исключений безопаснее считать DOMAIN как suffix:
+            # vk.com должен исключать и vk.com, и sub.vk.com.
+            suffixes.add(value)
+        elif rule_type == "DOMAIN-REGEX":
+            regexes.add(value)
+        elif rule_type == "DOMAIN-KEYWORD":
+            # KEYWORD автоматом не применяем: слишком велик риск ложных срабатываний.
+            pass
+
+        return
+
+    value = clean_domain(token)
+
+    if not value:
+        return
+
+    # Geosite-style tokens.
+    if value.startswith("full:"):
+        suffixes.add(clean_domain(value[5:]))
+        return
+
+    if value.startswith("domain:"):
+        suffixes.add(clean_domain(value[7:]))
+        return
+
+    if value.startswith("regexp:"):
+        regexes.add(value[7:])
+        return
+
+    if value.startswith("keyword:"):
+        return
+
+    # +.example.com means example.com and subdomains.
+    if value.startswith("+."):
+        value = value[2:]
+
+    # Examples from category-ru: +.tinkoff.*, +.sovcombank.*
+    if "*" in value:
+        wildcards.add(value)
+        wildcards.add("*." + value)
+        return
+
+    # Bare TLDs like ru, su, xn--p1ai should act as suffixes.
+    # Bare domains like vk.com also act as suffixes for subdomains.
+    suffixes.add(value)
+
+
+def add_cidr_token(token: str, networks: list[ipaddress._BaseNetwork]):
+    token = token.strip().strip("\"'")
+
+    if not token:
+        return
+
+    if token.startswith("#") or token.startswith(";"):
+        return
+
+    parts = [p.strip() for p in token.split(",")]
+
+    if len(parts) >= 2 and parts[0].upper() in CIDR_RULE_TYPES:
+        value = parts[1]
+    else:
+        value = parts[0]
+
+    value = value.strip().strip("\"'")
+
+    if not value or "/" not in value:
+        return
+
+    try:
+        networks.append(ipaddress.ip_network(value, strict=False))
+    except ValueError:
+        return
+
+
+def build_exclusion_sets():
+    suffixes: set[str] = set()
+    wildcards: set[str] = set()
+    regexes: set[str] = set()
+    networks: list[ipaddress._BaseNetwork] = []
+
+    for url in DOMAIN_EXCLUDE_SOURCES:
+        print(f"[exclude] downloading domain source: {url}", file=sys.stderr)
+        text = fetch_text(url)
+
+        for token in split_source_tokens(text):
+            add_domain_token(token, suffixes, wildcards, regexes)
+
+    for url in CIDR_EXCLUDE_SOURCES:
+        print(f"[exclude] downloading cidr source: {url}", file=sys.stderr)
+        text = fetch_text(url)
+
+        for token in split_source_tokens(text):
+            add_cidr_token(token, networks)
+
+    v4 = [n for n in networks if n.version == 4]
+    v6 = [n for n in networks if n.version == 6]
+
+    v4_intervals = merge_network_intervals(v4)
+    v6_intervals = merge_network_intervals(v6)
+
+    print(
+        f"[exclude] domain suffixes={len(suffixes)}, wildcards={len(wildcards)}, "
+        f"regexes={len(regexes)}, cidr_v4={len(v4_intervals)}, cidr_v6={len(v6_intervals)}",
+        file=sys.stderr,
+    )
+
+    return suffixes, wildcards, regexes, v4_intervals, v6_intervals
+
+
+def merge_network_intervals(networks):
+    intervals = []
+
+    for net in networks:
+        start = int(net.network_address)
+        end = int(net.broadcast_address)
+        intervals.append((start, end))
+
+    intervals.sort()
+
+    merged = []
+    for start, end in intervals:
+        if not merged or start > merged[-1][1] + 1:
+            merged.append([start, end])
         else:
-            wildcards.append(value)  # type: ignore[arg-type]
+            merged[-1][1] = max(merged[-1][1], end)
 
-    return suffixes, wildcards
+    return [(start, end) for start, end in merged]
 
 
-def domain_blocked(domain: str, suffixes: set[str], wildcards: list[re.Pattern[str]]) -> bool:
-    domain = domain.lower().strip().strip('"').strip("'").lstrip(".")
+def domain_matches_suffix(domain: str, suffix: str) -> bool:
+    return domain == suffix or domain.endswith("." + suffix)
+
+
+def domain_is_excluded(domain: str, suffixes: set[str], wildcards: set[str], regexes: set[str]) -> bool:
+    domain = clean_domain(domain)
+
     if not domain:
         return False
 
     for suffix in suffixes:
-        if domain == suffix or domain.endswith("." + suffix):
+        if domain_matches_suffix(domain, suffix):
             return True
 
-    return any(rx.search(domain) for rx in wildcards)
+    for pattern in wildcards:
+        if fnmatch.fnmatchcase(domain, pattern):
+            return True
 
-
-def load_cidr_excludes(paths: Iterable[str]) -> dict[int, list[ipaddress._BaseNetwork]]:
-    networks: dict[int, list[ipaddress._BaseNetwork]] = {4: [], 6: []}
-
-    for token in read_tokens(paths):
-        token = token.split(",", 1)[0].strip()
+    for pattern in regexes:
         try:
-            net = ipaddress.ip_network(token, strict=False)
-        except ValueError:
+            if re.search(pattern, domain):
+                return True
+        except re.error:
             continue
-        networks[net.version].append(net)
 
-    for version in (4, 6):
-        networks[version] = sorted(
-            ipaddress.collapse_addresses(networks[version]),
-            key=lambda n: (int(n.network_address), n.prefixlen),
+    return False
+
+
+def network_is_fully_excluded(net: ipaddress._BaseNetwork, v4_intervals, v6_intervals) -> bool:
+    intervals = v4_intervals if net.version == 4 else v6_intervals
+
+    if not intervals:
+        return False
+
+    start = int(net.network_address)
+    end = int(net.broadcast_address)
+
+    starts = [i[0] for i in intervals]
+    idx = bisect_right(starts, start) - 1
+
+    if idx < 0:
+        return False
+
+    interval_start, interval_end = intervals[idx]
+
+    return interval_start <= start and end <= interval_end
+
+
+def should_drop_rule(line: str, suffixes, wildcards, regexes, v4_intervals, v6_intervals) -> tuple[bool, str]:
+    stripped = line.strip()
+
+    if not stripped or stripped.startswith("#") or stripped.startswith(";"):
+        return False, ""
+
+    parts = [p.strip() for p in stripped.split(",")]
+    rule_type = parts[0].upper()
+
+    if rule_type in {"DOMAIN", "DOMAIN-SUFFIX"} and len(parts) >= 2:
+        domain = parts[1]
+        if domain_is_excluded(domain, suffixes, wildcards, regexes):
+            return True, "domain"
+
+    # DOMAIN-KEYWORD intentionally skipped:
+    # keyword matching against RU/private lists creates too many false positives.
+
+    if rule_type in CIDR_RULE_TYPES and len(parts) >= 2:
+        try:
+            net = ipaddress.ip_network(parts[1], strict=False)
+        except ValueError:
+            return False, ""
+
+        if network_is_fully_excluded(net, v4_intervals, v6_intervals):
+            return True, "cidr"
+
+    return False, ""
+
+
+def filter_file(path: Path, suffixes, wildcards, regexes, v4_intervals, v6_intervals, dry_run: bool):
+    if not path.exists():
+        print(f"[skip] {path} does not exist", file=sys.stderr)
+        return 0, 0, 0
+
+    original_lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+
+    kept = []
+    dropped_domain = 0
+    dropped_cidr = 0
+
+    for line in original_lines:
+        drop, reason = should_drop_rule(
+            line,
+            suffixes,
+            wildcards,
+            regexes,
+            v4_intervals,
+            v6_intervals,
         )
 
-    return networks
-
-
-def subtract_network(
-    net: ipaddress._BaseNetwork,
-    excludes: dict[int, list[ipaddress._BaseNetwork]],
-) -> list[ipaddress._BaseNetwork]:
-    remaining: list[ipaddress._BaseNetwork] = [net]
-
-    for ex in excludes.get(net.version, []):
-        next_remaining: list[ipaddress._BaseNetwork] = []
-
-        for part in remaining:
-            if not part.overlaps(ex):
-                next_remaining.append(part)
-                continue
-
-            if part.subnet_of(ex) or part == ex:
-                continue
-
-            if ex.subnet_of(part):
-                next_remaining.extend(part.address_exclude(ex))
-                continue
-
-            next_remaining.append(part)
-
-        remaining = next_remaining
-        if not remaining:
-            break
-
-    return sorted(remaining, key=lambda n: (int(n.network_address), n.prefixlen))
-
-
-def filter_file(
-    path_str: str,
-    suffixes: set[str],
-    wildcards: list[re.Pattern[str]],
-    cidr_excludes: dict[int, list[ipaddress._BaseNetwork]],
-) -> tuple[int, int]:
-    path = Path(path_str)
-    output: list[str] = []
-    removed = 0
-    expanded_cidr = 0
-
-    for raw_line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
-        line = raw_line.strip()
-        if not line or line.startswith(("#", ";")):
-            output.append(raw_line)
+        if drop:
+            if reason == "domain":
+                dropped_domain += 1
+            elif reason == "cidr":
+                dropped_cidr += 1
             continue
 
-        rule_type, sep, payload = line.partition(",")
-        rule_type = rule_type.strip().upper()
-        payload = payload.strip()
+        kept.append(line)
 
-        if rule_type in {"DOMAIN", "DOMAIN-SUFFIX"}:
-            if sep and domain_blocked(payload.split(",", 1)[0], suffixes, wildcards):
-                removed += 1
-                continue
-            output.append(line)
-            continue
+    if not dry_run:
+        path.write_text("\n".join(kept).rstrip() + "\n", encoding="utf-8")
 
-        if rule_type == "DOMAIN-WILDCARD":
-            probe = payload.replace("*.", "").replace("*", "").strip(".")
-            if probe and domain_blocked(probe, suffixes, wildcards):
-                removed += 1
-                continue
-            output.append(line)
-            continue
-
-        if rule_type in {"DOMAIN-KEYWORD", "DOMAIN-REGEX"}:
-            output.append(line)
-            continue
-
-        if rule_type in CIDR_RULES:
-            cidr_text = payload.split(",", 1)[0].strip()
-            suffix = ",no-resolve" if line.endswith(",no-resolve") else ""
-            try:
-                net = ipaddress.ip_network(cidr_text, strict=False)
-            except ValueError:
-                output.append(line)
-                continue
-
-            pieces = subtract_network(net, cidr_excludes)
-            if not pieces:
-                removed += 1
-                continue
-
-            if len(pieces) != 1 or pieces[0] != net:
-                removed += 1
-                expanded_cidr += len(pieces)
-
-            for piece in pieces:
-                new_type = "IP-CIDR6" if piece.version == 6 else "IP-CIDR"
-                output.append(f"{new_type},{piece}{suffix}")
-            continue
-
-        output.append(line)
-
-    seen: set[str] = set()
-    deduped: list[str] = []
-    for item in output:
-        key = item.strip()
-        if key and key in seen:
-            continue
-        if key:
-            seen.add(key)
-        deduped.append(item)
-
-    path.write_text("\n".join(deduped).rstrip() + "\n", encoding="utf-8")
-    return removed, expanded_cidr
+    return len(original_lines), dropped_domain, dropped_cidr
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Subtract RU/private exclusions from generated rulesets.")
-    parser.add_argument("--domain-exclude", action="append", default=[], help="Domain exclusion source")
-    parser.add_argument("--cidr-exclude", action="append", default=[], help="CIDR exclusion source")
-    parser.add_argument("--targets", nargs="+", required=True, help="Ruleset files to filter")
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("files", nargs="+", help="meta/*.list files to filter")
+    parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
-    suffixes, wildcards = load_domain_excludes(args.domain_exclude)
-    cidr_excludes = load_cidr_excludes(args.cidr_exclude)
+    suffixes, wildcards, regexes, v4_intervals, v6_intervals = build_exclusion_sets()
 
-    print(f"Domain suffix exclusions: {len(suffixes)}")
-    print(f"Domain wildcard exclusions: {len(wildcards)}")
-    print(f"CIDR IPv4 exclusions: {len(cidr_excludes[4])}")
-    print(f"CIDR IPv6 exclusions: {len(cidr_excludes[6])}")
+    total_domain = 0
+    total_cidr = 0
 
-    total_removed = 0
-    total_expanded = 0
-    for target in args.targets:
-        path = Path(target)
-        if not path.is_file():
-            print(f"skip missing target: {target}")
-            continue
-        removed, expanded = filter_file(target, suffixes, wildcards, cidr_excludes)
-        total_removed += removed
-        total_expanded += expanded
-        print(f"{target}: removed={removed}, cidr_expanded={expanded}")
+    for file_name in args.files:
+        path = Path(file_name)
+        total, dropped_domain, dropped_cidr = filter_file(
+            path,
+            suffixes,
+            wildcards,
+            regexes,
+            v4_intervals,
+            v6_intervals,
+            args.dry_run,
+        )
 
-    print(f"Total removed rules: {total_removed}")
-    print(f"Total emitted replacement CIDRs: {total_expanded}")
-    return 0
+        total_domain += dropped_domain
+        total_cidr += dropped_cidr
+
+        print(
+            f"[filter] {path}: total={total}, "
+            f"dropped_domain={dropped_domain}, dropped_cidr={dropped_cidr}",
+            file=sys.stderr,
+        )
+
+    print(
+        f"[filter] done: dropped_domain={total_domain}, dropped_cidr={total_cidr}",
+        file=sys.stderr,
+    )
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()
