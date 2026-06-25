@@ -132,12 +132,14 @@ sniffer:
 
 pg-anchor:
   - &URLTEST_COMMON {type: url-test, lazy: true, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/bypass.png, include-all: true, exclude-type: direct, url: "https://www.gstatic.com/generate_204", interval: 120, tolerance: 30, timeout: 5000, hidden: true}
-  - &GLOBAL_PROXIES ["🌍全球加速","♻️全部随机","🇭🇰香港随机","🇹🇼台湾随机","🇯🇵日本随机","🇸🇬新加坡随机","🇰🇷韩国随机","🇺🇸美国随机","🎯直连"]
-  - &GLOBAL_WITH_DIRECT ["🎯直连","🌍全球加速","♻️全部随机","🇭🇰香港随机","🇹🇼台湾随机","🇯🇵日本随机","🇸🇬新加坡随机","🇰🇷韩国随机","🇺🇸美国随机"]
+  - &GLOBAL_PROXIES ["🌍全球加速","🔗链式出口","♻️全部随机","🇭🇰香港随机","🇹🇼台湾随机","🇯🇵日本随机","🇸🇬新加坡随机","🇰🇷韩国随机","🇺🇸美国随机","🎯直连"]
+  - &GLOBAL_WITH_DIRECT ["🎯直连","🌍全球加速","🔗链式出口","♻️全部随机","🇭🇰香港随机","🇹🇼台湾随机","🇯🇵日本随机","🇸🇬新加坡随机","🇰🇷韩国随机","🇺🇸美国随机"]
   - &AUTO_COMMON {include-all: true, exclude-type: direct, filter: ".*"}
+  - &CHAIN_EXIT_LIST ["♻️全部随机","🇭🇰香港随机","🇹🇼台湾随机","🇯🇵日本随机","🇸🇬新加坡随机","🇰🇷韩国随机","🇺🇸美国随机"]
+  - &CHAIN_RELAY_LIST ["🌍全球加速","♻️全部随机","🇭🇰香港随机","🇹🇼台湾随机","🇯🇵日本随机","🇸🇬新加坡随机","🇰🇷韩国随机","🇺🇸美国随机"]
   
 proxy-groups:
-  - {name: "🌍全球加速", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/global.png, proxies: ["♻️全部随机","🇭🇰香港随机","🇹🇼台湾随机","🇯🇵日本随机","🇸🇬新加坡随机","🇰🇷韩国随机","🇺🇸美国随机"], <<: *AUTO_COMMON, url: "https://www.gstatic.com/generate_204", interval: 120, timeout: 5000}
+  - {name: "🌍全球加速", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/global.png, proxies: ["♻️全部随机","🔗链式出口","🇭🇰香港随机","🇹🇼台湾随机","🇯🇵日本随机","🇸🇬新加坡随机","🇰🇷韩国随机","🇺🇸美国随机"], <<: *AUTO_COMMON, url: "https://www.gstatic.com/generate_204", interval: 120, timeout: 5000}
   - {name: "🎷抖音", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/douyin_1.png, proxies: *GLOBAL_PROXIES, <<: *AUTO_COMMON}
   - {name: "🎬TikTok", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/tiktok_1.png, proxies: *GLOBAL_PROXIES, <<: *AUTO_COMMON}
   - {name: "🎮国际游戏", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/game_2.png, proxies: *GLOBAL_PROXIES, <<: *AUTO_COMMON}
@@ -156,6 +158,8 @@ proxy-groups:
   - {name: "⛩️阿里腾讯", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/alibaba_tencent.png, proxies: ["🎯直连","🌍全球加速"]}
   - {name: "🎯直连", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/china.png, proxies: ["DIRECT","🌍全球加速"], url: "http://connect.rom.miui.com/generate_204"}
   - {name: "🤡漏网之鱼", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/match_1.png, proxies: ["🌍全球加速","🎯直连"]}
+  - {name: "🔗链式出口", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/bypass.png, override: {dialer-proxy: "🔗链式中转"}, proxies: *CHAIN_EXIT_LIST, <<: *AUTO_COMMON}
+  - {name: "🔗链式中转", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/bypass.png, proxies: *CHAIN_RELAY_LIST, <<: *AUTO_COMMON}
   - {name: "🇭🇰香港随机", <<: *URLTEST_COMMON, filter: "🇭🇰|HK|Hong|hong|香港|深港|沪港|京港|港"}
   - {name: "🇹🇼台湾随机", <<: *URLTEST_COMMON, filter: "🇹🇼|TW|TWN|Taiwan|Taipei|台湾|台灣|台北"}
   - {name: "🇯🇵日本随机", <<: *URLTEST_COMMON, filter: "🇯🇵|JP|Japan|japan|Tokyo|东京|大阪|日本"}
