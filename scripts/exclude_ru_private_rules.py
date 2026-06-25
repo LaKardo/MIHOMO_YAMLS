@@ -12,6 +12,7 @@ from pathlib import Path
 DOMAIN_EXCLUDE_SOURCES = [
     "https://raw.githubusercontent.com/Davoyan/mihomo-rule-sets/main/rules/category-ru.lst",
     "https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/GeoData/MetaCubeX/geosite/geosite.dat_text/geosite_private.txt",
+    "https://github.com/Akiyamov/singbox-ech-list/releases/latest/download/domains_ech.lst",
 ]
 
 CIDR_EXCLUDE_SOURCES = [
