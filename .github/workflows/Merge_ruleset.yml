@@ -555,7 +555,7 @@ jobs:
 
       - name: Filter RU/private exclusions from proxy-like rulesets
         run: |
-         python3 scripts/filter_ru_private_exclusions.py \
+         python3 scripts/exclude_ru_private_rules.py \
          meta/proxy.list
 
       - name: Generate sing-box ruleset
