@@ -11,13 +11,13 @@ from pathlib import Path
 
 DOMAIN_EXCLUDE_SOURCES = [
     "https://raw.githubusercontent.com/Davoyan/mihomo-rule-sets/main/rules/category-ru.lst",
-    "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.list",
+    "https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/GeoData/MetaCubeX/geosite/geosite.dat_text/geosite_private.txt",
 ]
 
 CIDR_EXCLUDE_SOURCES = [
-    "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.list",
     "https://raw.githubusercontent.com/Davoyan/mihomo-rule-sets/main/ip-for-ru/lists/ips-for-ru.txt",
-    "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/ru.list",
+    "https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/GeoData/MetaCubeX/geoip/geoip.dat_text/geoip_private.txt",
+    "https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/GeoData/MetaCubeX/geoip/geoip.dat_text/geoip_ru.txt",
     "https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/GeoData/xream/geoip/ip2location.geoip.dat_text/ip2location.geoip_ru.txt",
     "https://raw.githubusercontent.com/LaKardo/MIHOMO_YAMLS/GeoData/xream/geoip/ipinfo.geoip.dat_text/ipinfo.geoip_ru.txt",
 ]
