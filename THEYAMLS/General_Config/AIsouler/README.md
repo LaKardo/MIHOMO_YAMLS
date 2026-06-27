@@ -8,18 +8,18 @@
 
 | 特性 | `mihomoconfig.yaml` | `mihomoConfigLite.yaml` |
 | :--- | :--- | :--- |
-| **大小** | 24.1 KB | 14.6 KB |
+| **大小** | 23.9 KB | 15.2 KB |
 | **混合端口** | - | - |
-| **面板地址** | [::]:9090 | [::]:9090 |
+| **面板地址** | 127.0.0.1:9090 | 127.0.0.1:9090 |
 | **运行模式** | rule | rule |
 | **TUN** | ✅ | ✅ |
-| **策略组** | **47** | **23** |
-| **规则数** | **41** | **18** |
+| **策略组** | **47** | **24** |
+| **规则数** | **42** | **18** |
 
 ## 📄 配置详情
 
 #### 📝 mihomoconfig.yaml
-- **路径**: `mihomoconfig.yaml` | **大小**: 24.1 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/AIsouler/mihomoconfig.yaml)
+- **路径**: `mihomoconfig.yaml` | **大小**: 23.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/AIsouler/mihomoconfig.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (47个)</summary>
@@ -50,10 +50,10 @@
 </details>
 
 #### 📝 mihomoConfigLite.yaml
-- **路径**: `mihomoConfigLite.yaml` | **大小**: 14.6 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/AIsouler/mihomoConfigLite.yaml)
+- **路径**: `mihomoConfigLite.yaml` | **大小**: 15.2 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/AIsouler/mihomoConfigLite.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (23个)</summary>
+<summary>🔍 策略组 (24个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -61,6 +61,7 @@
 | ♻️ 自动选择 | `url-test` |
 | 👆 AI | `select` |
 | 👆 Telegram | `select` |
+| 👆 Steam | `select` |
 | 👆 广告拦截 | `select` |
 | 👆 直连 | `select` |
 | 👆 漏网之鱼 | `select` |
@@ -76,6 +77,5 @@
 | ♻️ 台湾省-自动选择 | `url-test` |
 | 👆 低倍率节点 | `select` |
 | ♻️ 低倍率节点-自动选择 | `url-test` |
-| 👆 高倍率节点 | `select` |
-| ... | 还有 3 个 |
+| ... | 还有 4 个 |
 </details>
