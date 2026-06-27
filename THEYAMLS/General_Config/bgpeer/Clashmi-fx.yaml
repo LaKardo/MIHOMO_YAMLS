@@ -1,3 +1,4 @@
+# bgpeer复写yaml  版本：1.1
 # ClashMi把链接添加到➜核心设置➜复写➜右上➕里面去，用此配置可以把软件里面的所有复写关掉
 # 也可以把这个配置复制下来自己编辑，然后保存_名称.yaml_格式的文件添加到软件
 
@@ -12,7 +13,6 @@ ipv6: true
 etag-support: true
 disable-keep-alive: false
 find-process-mode: always
-global-client-fingerprint: chrome
 unified-delay: true
 tcp-concurrent: true
 inbound-tfo: true
@@ -91,9 +91,8 @@ dns:
     "rule-set:GitHub-zj": *global-dns
     "rule-set:TikTok-zj": *global-dns
     "rule-set:PayPal": *global-dns
-    "rule-set:YouTube": *global-dns
+    "rule-set:Netflix": *global-dns
     "rule-set:Facebook-zj": *global-dns
-    "rule-set:WildRift-zj": *global-dns
     "rule-set:games-!cn": *global-dns
     "rule-set:twitter": *global-dns
     "rule-set:gfw": *global-dns
@@ -149,6 +148,8 @@ proxy-groups:
   - {name: "💳PayPal", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/paypal.png, proxies: *GLOBAL_PROXIES, <<: *AUTO_COMMON}
   - {name: "🌐Google服务", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/google_1.png, proxies: *GLOBAL_PROXIES, <<: *AUTO_COMMON}
   - {name: "📱Meta", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/meta.png, proxies: *GLOBAL_PROXIES, <<: *AUTO_COMMON}
+  - {name: "🐦X", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/x.png, proxies: *GLOBAL_PROXIES, <<: *AUTO_COMMON}
+  - {name: "📽️Netflix", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/netflix.png, proxies: *GLOBAL_PROXIES, <<: *AUTO_COMMON}
   - {name: "😈GitHub", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/github.png, proxies: *GLOBAL_PROXIES, <<: *AUTO_COMMON}
   - {name: "😊微软服务", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/microsoft.png, proxies: *GLOBAL_WITH_DIRECT, <<: *AUTO_COMMON}
   - {name: "🍎苹果服务", type: select, icon: https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/icons/main/color/apple.png, proxies: *GLOBAL_WITH_DIRECT, <<: *AUTO_COMMON}
@@ -188,11 +189,9 @@ rules:
   - RULE-SET,Claude-zj,🤖Claude
   - RULE-SET,PayPal,💳PayPal
   - RULE-SET,Cryptocurrency,💰加密货币
-  - RULE-SET,WildRift-zj,🎮国际游戏
   - RULE-SET,games-!cn,🎮国际游戏
   - RULE-SET,Telegram-zj,💻Telegram
-  - RULE-SET,telegram-ip,💻Telegram,no-resolve
-  - RULE-SET,YouTube,🌐Google服务
+  - RULE-SET,Netflix,📽️Netflix
   - RULE-SET,Google-zj,🌐Google服务
   - RULE-SET,google-ip,🌐Google服务,no-resolve
   - RULE-SET,Facebook-zj,📱Meta
@@ -200,7 +199,7 @@ rules:
   - RULE-SET,Microsoft,😊微软服务
   - RULE-SET,icloud,🍎苹果服务
   - RULE-SET,Apple,🍎苹果服务
-  - RULE-SET,twitter,🌍全球加速
+  - RULE-SET,twitter,🐦X
   - RULE-SET,cloudflare-ip,🌍全球加速,no-resolve
   - RULE-SET,cloudfront-ip,🌍全球加速,no-resolve
   - RULE-SET,fastly-ip,🌍全球加速,no-resolve
@@ -229,17 +228,15 @@ rule-providers:
   TikTok-zj: {<<: *class-yaml, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/tiktok.yaml"}
   Telegram-zj: {<<: *class-yaml, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/telegram.yaml"}
   OpenAI-zj: {<<: *class-yaml, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/openai.yaml"}
-  Facebook-zj: {<<: *class-yaml, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/meta.yaml"}
+  Facebook-zj: {<<: *mrs-domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/meta.mrs"}
+  Netflix: {<<: *class-yaml, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/netflix.yaml"}
   Google-zj: {<<: *class-yaml, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/google.yaml"}
-  WildRift-zj: {<<: *class-yaml, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/wildrift.yaml"}
   GitHub-zj: {<<: *mrs-domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/github.mrs"}
   Claude-zj: {<<: *class-yaml, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/anthropic.yaml"}
   PayPal: {<<: *mrs-domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/paypal.mrs"}
   Cryptocurrency: {<<: *mrs-domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/category-cryptocurrency.mrs"}
-  YouTube: {<<: *mrs-domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/youtube.mrs"}
-  games-!cn: {<<: *mrs-domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/category-games-!cn.mrs"}
+  games-!cn: {<<: *class-yaml, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/category-games-!cn.yaml"}
   twitter: {<<: *mrs-domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/twitter.mrs"}
-  telegram-ip: {<<: *mrs-ipcidr, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geoip/telegram.mrs"}
   google-ip: {<<: *mrs-ipcidr, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geoip/google.mrs"}
   cloudflare-ip: {<<: *mrs-ipcidr, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geoip/cloudflare.mrs"}
   cloudfront-ip: {<<: *mrs-ipcidr, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geoip/cloudfront.mrs"}
@@ -252,7 +249,7 @@ rule-providers:
   geolocation-!cn: {<<: *mrs-domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/geolocation-!cn.mrs"}
   games-cn: {<<: *mrs-domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/category-games-cn.mrs"}
   bilibili: {<<: *mrs-domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/bilibili.mrs"}
-  xiaohongshu: {<<: *class-yaml, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/xiaohongshu.yaml"}
+  xiaohongshu: {<<: *mrs-domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/xiaohongshu.mrs"}
   Alibaba: {<<: *class-yaml, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/alibaba.yaml"}
   Tencent: {<<: *class-yaml, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/tencent.yaml"}
   private: {<<: *mrs-domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/bgpeer/rules/main/geo/geosite/private.mrs"}

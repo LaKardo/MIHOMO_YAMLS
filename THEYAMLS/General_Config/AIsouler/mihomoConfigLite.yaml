@@ -2,7 +2,7 @@
 #  mihomo配置（精简版）
 #  作者：AIsouler
 #  原仓库：https://github.com/AIsouler/MyClash
-#  配置链接：https://github.com/AIsouler/MyClash/blob/main/Config/mihomoConfigLite.yaml
+#  配置链接：https://raw.githubusercontent.com/AIsouler/MyClash/main/Config/mihomoConfigLite.yaml
 #  友情推荐，非常好用、省电且内存占用低的代理软件：https://github.com/appshubcc/Bettbox
 #  ---------------------
 
@@ -36,13 +36,15 @@ proxy-providers:
     path: ./proxy_providers/provider1.yaml
     override:
       additional-prefix: 'p1 | ' # 给节点名称添加前缀，防止不同订阅的节点重名导致出现问题
-  # provider2:
-  #   <<: [*proxy_providers_common, *global_exclude_filter]
-  #   url: ''
-  #   age-secret-key: ''
-  #   path: ./proxy_providers/provider2.yaml
-  #   override:
-  #     additional-prefix: 'p2 | '
+
+# 以下是一个示例，各行缩进必须严格对齐provider1
+# provider2:
+#   <<: [*proxy_providers_common, *global_exclude_filter]
+#   url: ''
+#   age-secret-key: ''
+#   path: ./proxy_providers/provider2.yaml
+#   override:
+#     additional-prefix: 'p2 | '
 
 # --- 基础全局配置 ---
 
@@ -56,7 +58,7 @@ tcp-concurrent: true
 keep-alive-idle: 600
 keep-alive-interval: 60
 find-process-mode: strict
-external-controller: '[::]:9090'
+external-controller: '127.0.0.1:9090'
 external-ui: ui
 external-ui-url: 'https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip'
 
@@ -79,7 +81,6 @@ foreignDNS:
 dns:
   enable: true
   ipv6: true
-  listen: :1053
   cache-algorithm: arc
   use-hosts: true
   use-system-hosts: true
@@ -117,7 +118,6 @@ ntp:
 tun:
   enable: true
   stack: system
-  mtu: 9000
   auto-route: true
   strict-route: true
   auto-redirect: true
@@ -282,6 +282,24 @@ proxies_common:
         ],
     }
 
+  proxies_direct:
+    &proxies_direct {
+      proxies:
+        [
+          '默认代理',
+          '自动选择',
+          '直连',
+          '香港',
+          '日本',
+          '美国',
+          '新加坡',
+          '台湾省',
+          '低倍率节点',
+          '高倍率节点',
+          '其他节点',
+        ],
+    }
+
   proxies_reject: &proxies_reject { proxies: ['REJECT', 'REJECT-DROP', 'PASS'] }
 
 # 地区过滤器正则表达式定义
@@ -334,6 +352,10 @@ proxy-groups:
   - name: 'Telegram'
     <<: [*group_common_select, *proxies_default]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png'
+
+  - name: 'Steam'
+    <<: [*group_common_select, *proxies_direct]
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png'
 
   - name: '广告拦截'
     <<: [*group_common_select, *proxies_reject]
@@ -416,6 +438,7 @@ proxy-groups:
     <<: [*group_common_auto, *exclude_filter]
 
 # --- 路由规则 (Rules) ---
+
 rules:
   # 禁用国外 QUIC 流量
   - AND,((NETWORK,UDP),(DST-PORT,443),(NOT,((OR,((RULE-SET,cn_additional),(RULE-SET,cn_ip,no-resolve)))))),REJECT
@@ -425,7 +448,7 @@ rules:
   - RULE-SET,private_ip,直连,no-resolve
 
   # 国内直连
-  - RULE-SET,games_cn,直连
+  - RULE-SET,games_cn,直连 # 已包含 steam 下载域名
   - RULE-SET,epicgames,直连
   - RULE-SET,apple_cn,直连
   - RULE-SET,microsoft_cn,直连
