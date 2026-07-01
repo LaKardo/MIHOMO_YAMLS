@@ -24,7 +24,7 @@ proxy_providers_common:
 # 全局过滤节点
 global_exclude_filter:
   &global_exclude_filter {
-    exclude-filter: '群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|DIZTNA|通路|登录|禁止|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|⚠️|@|Expire|http|com',
+    exclude-filter: '群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|DIZTNA|通路|登录|禁止|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|建议|⚠️|@|Expire|http|com',
   }
 
 # 订阅提供者，如果你想要添加多个订阅提供者，可以复制 provider1 的配置块，并修改 url 、 path 和 additional-prefix 字段。
@@ -81,12 +81,11 @@ foreignDNS:
 dns:
   enable: true
   ipv6: true
-  cache-algorithm: arc
   use-hosts: true
+  cache-algorithm: arc
   use-system-hosts: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-  fake-ip-range-v6: 'fc00::/18'
   fake-ip-filter: ['rule-set:private', 'rule-set:fakeip_filter']
   proxy-server-nameserver: *chinaDNS
   default-nameserver: ['223.5.5.5', '119.29.29.29']
@@ -107,6 +106,7 @@ hosts:
   # 屏蔽哔哩哔哩PCDN，解决访问视频卡顿问题
   '+.mcdn.bilivideo.com': ['0.0.0.0']
   '+.mcdn.bilivideo.cn': ['0.0.0.0']
+  '+.edge.mountaintoys.cn': ['0.0.0.0']
 
 ntp:
   enable: true
@@ -346,7 +346,7 @@ proxy-groups:
 
   - name: 'AI'
     <<: [*group_common_select, *proxies_default]
-    default-selected: '日本'
+    default-selected: '美国'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png'
 
   - name: 'Telegram'
@@ -357,7 +357,7 @@ proxy-groups:
     <<: [*group_common_select, *proxies_direct]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png'
 
-  - name: '广告拦截'
+  - name: 'AdBlock'
     <<: [*group_common_select, *proxies_reject]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png'
 
@@ -456,7 +456,7 @@ rules:
   - DOMAIN,international-gfe.download.nvidia.com,直连
 
   # 广告拦截
-  - RULE-SET,adblockmihomolite,广告拦截
+  - RULE-SET,adblockmihomolite,AdBlock
 
   # 代理规则
   - RULE-SET,ai,AI
