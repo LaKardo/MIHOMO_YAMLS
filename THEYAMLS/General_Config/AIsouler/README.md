@@ -8,21 +8,21 @@
 
 | 特性 | `mihomoconfig.yaml` | `mihomoConfigLite.yaml` |
 | :--- | :--- | :--- |
-| **大小** | 23.9 KB | 15.2 KB |
+| **大小** | 23.5 KB | 15.2 KB |
 | **混合端口** | - | - |
 | **面板地址** | 127.0.0.1:9090 | 127.0.0.1:9090 |
 | **运行模式** | rule | rule |
 | **TUN** | ✅ | ✅ |
-| **策略组** | **47** | **24** |
+| **策略组** | **43** | **24** |
 | **规则数** | **42** | **18** |
 
 ## 📄 配置详情
 
 #### 📝 mihomoconfig.yaml
-- **路径**: `mihomoconfig.yaml` | **大小**: 23.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/AIsouler/mihomoconfig.yaml)
+- **路径**: `mihomoconfig.yaml` | **大小**: 23.5 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/AIsouler/mihomoconfig.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (47个)</summary>
+<summary>🔍 策略组 (43个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -30,23 +30,23 @@
 | ♻️ 自动选择 | `url-test` |
 | ⚖️ 负载均衡 | `load-balance` |
 | 👆 AI | `select` |
-| 👆 YouTube | `select` |
+| 👆 Media | `select` |
 | 👆 FCM | `select` |
 | 👆 Google | `select` |
 | 👆 GitHub | `select` |
 | 👆 Microsoft | `select` |
 | 👆 Apple | `select` |
 | 👆 Telegram | `select` |
-| 👆 Cloudflare | `select` |
-| 👆 Pixiv | `select` |
 | 👆 Steam | `select` |
+| 👆 TikTok | `select` |
 | 👆 Twitter | `select` |
-| 👆 Instagram | `select` |
 | 👆 Emby | `select` |
 | 👆 Spotify | `select` |
-| 👆 TikTok | `select` |
-| 👆 Netflix | `select` |
-| ... | 还有 27 个 |
+| 👆 AdBlock | `select` |
+| 👆 直连 | `select` |
+| 👆 漏网之鱼 | `select` |
+| 👆 香港 | `select` |
+| ... | 还有 23 个 |
 </details>
 
 #### 📝 mihomoConfigLite.yaml
@@ -62,7 +62,7 @@
 | 👆 AI | `select` |
 | 👆 Telegram | `select` |
 | 👆 Steam | `select` |
-| 👆 广告拦截 | `select` |
+| 👆 AdBlock | `select` |
 | 👆 直连 | `select` |
 | 👆 漏网之鱼 | `select` |
 | 👆 香港 | `select` |

@@ -8,42 +8,41 @@
 
 | 特性 | `config.yaml` | `config_lite.yaml` |
 | :--- | :--- | :--- |
-| **大小** | 8.0 KB | 2.9 KB |
+| **大小** | 7.3 KB | 2.9 KB |
 | **混合端口** | 7893 | 7893 |
 | **面板地址** | - | - |
 | **运行模式** | rule | rule |
 | **TUN** | ✅ | ✅ |
-| **策略组** | **18** | **1** |
-| **规则数** | **25** | **16** |
+| **策略组** | **17** | **1** |
+| **规则数** | **24** | **16** |
 
 ## 📄 配置详情
 
 #### 📝 config.yaml
-- **路径**: `config.yaml` | **大小**: 8.0 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Repcz/config.yaml)
+- **路径**: `config.yaml` | **大小**: 7.3 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Repcz/config.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
 <details>
-<summary>🔍 策略组 (18个)</summary>
+<summary>🔍 策略组 (17个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
-| 👆 手动切换 | `select` |
-| 👆 国外网站 | `select` |
-| 👆 国际媒体 | `select` |
-| 👆 苹果服务 | `select` |
-| 👆 微软服务 | `select` |
-| 👆 谷歌服务 | `select` |
-| 👆 电报消息 | `select` |
-| 👆 推特消息 | `select` |
+| 👆 Manual | `select` |
+| 👆 Global | `select` |
+| 👆 Streaming | `select` |
+| 👆 Microsoft | `select` |
+| 👆 Google | `select` |
 | 👆 AI | `select` |
-| 👆 游戏平台 | `select` |
+| 👆 Social | `select` |
+| 👆 Telegram | `select` |
+| 👆 Game | `select` |
 | 👆 Emby | `select` |
 | 👆 Spotify | `select` |
-| 👆 兜底分流 | `select` |
-| ♻️ 香港节点 | `url-test` |
-| ♻️ 美国节点 | `url-test` |
-| ♻️ 狮城节点 | `url-test` |
-| ♻️ 日本节点 | `url-test` |
-| ♻️ 台湾节点 | `url-test` |
+| 👆 Final | `select` |
+| ♻️ HongKong | `url-test` |
+| ♻️ United States | `url-test` |
+| ♻️ Singapore | `url-test` |
+| ♻️ Japan | `url-test` |
+| ♻️ Taiwan | `url-test` |
 </details>
 
 #### 📝 config_lite.yaml
