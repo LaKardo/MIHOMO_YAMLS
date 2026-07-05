@@ -7,10 +7,10 @@
 ## 📄 配置详情
 
 #### 📝 mihomo.yaml
-- **路径**: `mihomo.yaml` | **大小**: 33.4 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Tangerinell/mihomo.yaml)
+- **路径**: `mihomo.yaml` | **大小**: 40.6 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Tangerinell/mihomo.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (83个)</summary>
+<summary>🔍 策略组 (93个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -20,6 +20,7 @@
 | 👆 🌐其他 | `select` |
 | 👆 中转 | `select` |
 | 👆 落地 | `select` |
+| 👆 ➡️直连 | `select` |
 | 👆 ↩️绕过 | `select` |
 | 👆 ⛔阻断 | `select` |
 | 👆 🔗链式代理 | `select` |
@@ -33,6 +34,5 @@
 | 👆 📋手动全部 | `select` |
 | 👆 Pornhub | `select` |
 | 👆 TikTok | `select` |
-| 👆 Netflix | `select` |
-| ... | 还有 63 个 |
+| ... | 还有 73 个 |
 </details>
