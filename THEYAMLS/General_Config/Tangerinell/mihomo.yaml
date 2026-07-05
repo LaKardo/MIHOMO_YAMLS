@@ -1,5 +1,6 @@
 # Clash.Meta(mihomo)
 # v1.19.27
+# 2026-07-06 01:55:00
 
 JNTM: &JNTM
     interval: 43200
@@ -42,6 +43,8 @@ proxy-providers:
         target: "🇫🇷"
       - pattern: "德国"
         target: "🇩🇪"
+      - pattern: "加拿大"
+        target: "🇨🇦"
     filter: "^(?!.*(?i)(?:剩余|到期|官网)).*$"
 
   Node-2:
@@ -74,20 +77,12 @@ port: 0
 redir-port: 0
 tproxy-port: 0
 mode: rule
-log-level: warning
+log-level: error
 ipv6: true
 find-process-mode: always
-authentication: []
-skip-auth-prefixes:
-  - 127.0.0.1/32
-  - ::1/128
 
 allow-lan: true
-lan-disallowed-ips: []
 bind-address: "*"
-lan-allowed-ips:
-  - 0.0.0.0/0
-  - ::/0
 
 ### External Controller
 external-controller: 0.0.0.0:9090
@@ -102,21 +97,13 @@ external-controller-cors:
     - "*"
   allow-private-network: true
 
+
 profile:
   store-selected: true
   store-fake-ip: true
 
 unified-delay: true
 tcp-concurrent: true
-
-geo-auto-update: false
-geodata-mode: true
-geo-update-interval: 24
-geox-url:
-  geoip: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/other/geodata/geoip.dat"
-  geosite: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/other/geodata/geosite.dat"
-  mmdb: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/other/geodata/geoip.metadb"
-  asn: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/other/geodata/GeoLite2-ASN.mmdb"
 
 # Tunnel Configuration
 tun:
@@ -131,7 +118,6 @@ tun:
     - any:53
     - tcp://any:53
   strict-route: true
-  route-exclude-address: []
 
 # DNS Configuration
 dns:
@@ -146,7 +132,7 @@ dns:
 
   fake-ip-filter-mode: rule
   fake-ip-filter:
-    - RULE-SET,LAN,real-ip
+    - RULE-SET,private_geosite,real-ip
     - MATCH,fake-ip
 
   respect-rules: true
@@ -184,41 +170,48 @@ sniffer:
         - 8443
 
 # Node Filters
+
+FilterCN: &FilterCN 
+  "^(?!.*(?:🔗|台湾|🇹🇼|香港|🇭🇰|澳门|🇲🇴)).*(?:中国|🇨🇳)"
+
 FilterHK: &FilterHK 
-  "^(?=.*((?i)(香港|🇭🇰)))(?!.*((?i)(🔗))).*$"
+  "^(?!.*🔗).*(?:香港|🇭🇰)"
 
 FilterJP: &FilterJP 
-  "^(?=.*((?i)(日本|🇯🇵)))(?!.*((?i)(🔗))).*$"
+  "^(?!.*🔗).*(?:日本|🇯🇵)"
 
 FilterKR: &FilterKR 
-  "^(?=.*((?i)(韩国|🇰🇷)))(?!.*((?i)(🔗))).*$"
+  "^(?!.*🔗).*(?:韩国|🇰🇷)"
 
 FilterSG: &FilterSG 
-  "^(?=.*((?i)(新加坡|🇸🇬)))(?!.*((?i)(🔗))).*$"
+  "^(?!.*🔗).*(?:新加坡|🇸🇬)"
 
 FilterUS: &FilterUS 
-  "^(?=.*((?i)(美国|🇺🇸)))(?!.*((?i)(🔗))).*$"
+  "^(?!.*🔗).*(?:美国|🇺🇸)"
 
 FilterUK: &FilterUK 
-  "^(?=.*((?i)(英国|🇬🇧)))(?!.*((?i)(🔗))).*$"
+  "^(?!.*🔗).*(?:英国|🇬🇧)"
 
 FilterAU: &FilterAU 
-  "^(?=.*((?i)(澳大利亚|🇦🇺)))(?!.*((?i)(🔗))).*$"
+  "^(?!.*🔗).*(?:澳大利亚|🇦🇺)"
 
 FilterFR: &FilterFR 
-  "^(?=.*((?i)(法国|🇫🇷)))(?!.*((?i)(🔗))).*$"
+  "^(?!.*🔗).*(?:法国|🇫🇷)"
 
 FilterDE: &FilterDE 
-  "^(?=.*((?i)(德国|🇩🇪)))(?!.*((?i)(🔗))).*$"
+  "^(?!.*🔗).*(?:德国|🇩🇪)"
 
 FilterTW: &FilterTW 
-  "^(?=.*((?i)(台湾|🇹🇼)))(?!.*((?i)(🔗))).*$"
+  "^(?!.*🔗).*(?:台湾|🇹🇼)"
+
+FilterCA: &FilterCA 
+  "^(?!.*🔗).*(?:加拿大|🇨🇦)"
 
 FilterOthers: &FilterOthers 
-  "^(?!.*((?i)(香港|🇭🇰|台湾|🇹🇼|日本|🇯🇵|新加坡|🇸🇬|美国|🇺🇸|德国|🇩🇪|英国|🇬🇧|韩国|🇰🇷|法国|🇫🇷|澳大利亚|🇦🇺)))(?!.*((?i)(🔗))).*$"
+  "^(?!.*(?:🔗|中国|🇨🇳|香港|🇭🇰|台湾|🇹🇼|日本|🇯🇵|新加坡|🇸🇬|美国|🇺🇸|德国|🇩🇪|英国|🇬🇧|韩国|🇰🇷|法国|🇫🇷|澳大利亚|🇦🇺|加拿大|🇨🇦))"
 
 FilterAll: &FilterAll 
-  "^(?!.*((?i)(🔗))).*$"
+  "^(?!.*🔗)"
 
 # Proxy Group Templates
 Select: &Select
@@ -265,42 +258,7 @@ LoadBalance: &LoadBalance
   hidden: false
   include-all: true
 
-  strategy: round-robin
-
-
-Select_Proxies: &Select_Proxies
-  type: select
-  disable-udp: false
-  hidden: false
-  include-all: true
-  proxies: [
-            🎯代理, 🌐其他,
-            🔗链式代理, DIRECT, 
-            🟨手动选择, 🟦手动选择, 
-            🟢故障转移, 🟣故障转移, 
-            🔶自动选择, 🔷自动选择, 
-            ⛔阻断, ↩️绕过,
-            🇭🇰手动选择, 🇸🇬手动选择, 
-            🇺🇸手动选择, 🇹🇼手动选择, 
-            🇯🇵手动选择, 🇰🇷手动选择, 
-            🇦🇺手动选择, 🇬🇧手动选择, 
-            🇫🇷手动选择, 🇩🇪手动选择, 
-            🇭🇰自动选择, 🇸🇬自动选择, 
-            🇺🇸自动选择, 🇹🇼自动选择, 
-            🇯🇵自动选择, 🇰🇷自动选择, 
-            🇦🇺自动选择, 🇬🇧自动选择, 
-            🇫🇷自动选择, 🇩🇪自动选择, 
-            🇭🇰故障转移, 🇸🇬故障转移, 
-            🇺🇸故障转移, 🇹🇼故障转移, 
-            🇯🇵故障转移, 🇰🇷故障转移, 
-            🇦🇺故障转移, 🇬🇧故障转移, 
-            🇫🇷故障转移, 🇩🇪故障转移, 
-            🇭🇰负载均衡, 🇸🇬负载均衡, 
-            🇺🇸负载均衡, 🇹🇼负载均衡, 
-            🇯🇵负载均衡, 🇰🇷负载均衡, 
-            🇦🇺负载均衡, 🇬🇧负载均衡, 
-            🇫🇷负载均衡, 🇩🇪负载均衡
-            ]
+  strategy: consistent-hashing
 
 
 Select_Main: &Select_Main
@@ -312,28 +270,41 @@ Select_Main: &Select_Main
             🟨手动选择, 🟦手动选择, 
             🟢故障转移, 🟣故障转移, 
             🔶自动选择, 🔷自动选择, 
-            DIRECT, 🔗链式代理, 
+            🧩手动其他, 📋手动全部, 
+
+            🔗链式代理, ➡️直连, 
             ⛔阻断, ↩️绕过, 
+
             🇭🇰手动选择, 🇸🇬手动选择, 
             🇺🇸手动选择, 🇹🇼手动选择, 
             🇯🇵手动选择, 🇰🇷手动选择, 
-            🇦🇺手动选择, 🇬🇧手动选择, 
-            🇫🇷手动选择, 🇩🇪手动选择, 
-            🇭🇰自动选择, 🇸🇬自动选择, 
-            🇺🇸自动选择, 🇹🇼自动选择, 
-            🇯🇵自动选择, 🇰🇷自动选择, 
-            🇦🇺自动选择, 🇬🇧自动选择, 
-            🇫🇷自动选择, 🇩🇪自动选择, 
+            🇨🇦手动选择, 🇦🇺手动选择, 
+            🇬🇧手动选择, 🇫🇷手动选择, 
+            🇩🇪手动选择, 🇨🇳手动选择, 
+
             🇭🇰故障转移, 🇸🇬故障转移, 
             🇺🇸故障转移, 🇹🇼故障转移, 
             🇯🇵故障转移, 🇰🇷故障转移, 
-            🇦🇺故障转移, 🇬🇧故障转移, 
-            🇫🇷故障转移, 🇩🇪故障转移, 
+            🇨🇦故障转移, 🇦🇺故障转移, 
+            🇬🇧故障转移, 🇫🇷故障转移, 
+            🇩🇪故障转移, 🇨🇳故障转移, 
+            🧩回退其他, 📋回退全部,
+
+            🇭🇰自动选择, 🇸🇬自动选择, 
+            🇺🇸自动选择, 🇹🇼自动选择, 
+            🇯🇵自动选择, 🇰🇷自动选择, 
+            🇨🇦自动选择, 🇦🇺自动选择, 
+            🇬🇧自动选择, 🇫🇷自动选择, 
+            🇩🇪自动选择, 🇨🇳自动选择, 
+            🧩自动其他, 📋自动全部, 
+
             🇭🇰负载均衡, 🇸🇬负载均衡, 
             🇺🇸负载均衡, 🇹🇼负载均衡, 
             🇯🇵负载均衡, 🇰🇷负载均衡, 
-            🇦🇺负载均衡, 🇬🇧负载均衡, 
-            🇫🇷负载均衡, 🇩🇪负载均衡
+            🇨🇦负载均衡, 🇦🇺负载均衡, 
+            🇬🇧负载均衡, 🇫🇷负载均衡, 
+            🇩🇪负载均衡, 🇨🇳负载均衡, 
+            🧩均衡其他, 📋均衡全部
             ]
 
 
@@ -346,28 +317,143 @@ Dialer: &Dialer
             🟨手动选择, 🟦手动选择, 
             🟢故障转移, 🟣故障转移, 
             🔶自动选择, 🔷自动选择, 
-            DIRECT, ⛔阻断, 
+            🧩手动其他, 📋手动全部, 
+
+            ➡️直连, ⛔阻断, 
+
             🇭🇰手动选择, 🇸🇬手动选择, 
             🇺🇸手动选择, 🇹🇼手动选择, 
             🇯🇵手动选择, 🇰🇷手动选择, 
-            🇦🇺手动选择, 🇬🇧手动选择, 
-            🇫🇷手动选择, 🇩🇪手动选择, 
-            🇭🇰自动选择, 🇸🇬自动选择, 
-            🇺🇸自动选择, 🇹🇼自动选择, 
-            🇯🇵自动选择, 🇰🇷自动选择, 
-            🇦🇺自动选择, 🇬🇧自动选择, 
-            🇫🇷自动选择, 🇩🇪自动选择, 
+            🇨🇦手动选择, 🇦🇺手动选择, 
+            🇬🇧手动选择, 🇫🇷手动选择, 
+            🇩🇪手动选择, 🇨🇳手动选择, 
+
             🇭🇰故障转移, 🇸🇬故障转移, 
             🇺🇸故障转移, 🇹🇼故障转移, 
             🇯🇵故障转移, 🇰🇷故障转移, 
-            🇦🇺故障转移, 🇬🇧故障转移, 
-            🇫🇷故障转移, 🇩🇪故障转移, 
+            🇨🇦故障转移, 🇦🇺故障转移, 
+            🇬🇧故障转移, 🇫🇷故障转移, 
+            🇩🇪故障转移, 🇨🇳故障转移, 
+            🧩回退其他, 📋回退全部,
+
+            🇭🇰自动选择, 🇸🇬自动选择, 
+            🇺🇸自动选择, 🇹🇼自动选择, 
+            🇯🇵自动选择, 🇰🇷自动选择, 
+            🇨🇦自动选择, 🇦🇺自动选择, 
+            🇬🇧自动选择, 🇫🇷自动选择, 
+            🇩🇪自动选择, 🇨🇳自动选择, 
+            🧩自动其他, 📋自动全部, 
+
             🇭🇰负载均衡, 🇸🇬负载均衡, 
             🇺🇸负载均衡, 🇹🇼负载均衡, 
             🇯🇵负载均衡, 🇰🇷负载均衡, 
-            🇦🇺负载均衡, 🇬🇧负载均衡, 
-            🇫🇷负载均衡, 🇩🇪负载均衡
+            🇨🇦负载均衡, 🇦🇺负载均衡, 
+            🇬🇧负载均衡, 🇫🇷负载均衡, 
+            🇩🇪负载均衡, 🇨🇳负载均衡, 
+            🧩均衡其他, 📋均衡全部
             ]
+
+
+Select_Proxies: &Select_Proxies
+  type: select
+  disable-udp: false
+  hidden: false
+  include-all: true
+  proxies: [
+            🎯代理, 🌐其他,
+            🔗链式代理, ➡️直连, 
+
+            🟨手动选择, 🟦手动选择, 
+            🟢故障转移, 🟣故障转移, 
+            🔶自动选择, 🔷自动选择, 
+            🧩手动其他, 📋手动全部, 
+
+            ⛔阻断, ↩️绕过, 
+
+            🇭🇰手动选择, 🇸🇬手动选择, 
+            🇺🇸手动选择, 🇹🇼手动选择, 
+            🇯🇵手动选择, 🇰🇷手动选择, 
+            🇨🇦手动选择, 🇦🇺手动选择, 
+            🇬🇧手动选择, 🇫🇷手动选择, 
+            🇩🇪手动选择, 🇨🇳手动选择, 
+
+            🇭🇰故障转移, 🇸🇬故障转移, 
+            🇺🇸故障转移, 🇹🇼故障转移, 
+            🇯🇵故障转移, 🇰🇷故障转移, 
+            🇨🇦故障转移, 🇦🇺故障转移, 
+            🇬🇧故障转移, 🇫🇷故障转移, 
+            🇩🇪故障转移, 🇨🇳故障转移, 
+            🧩回退其他, 📋回退全部,
+
+            🇭🇰自动选择, 🇸🇬自动选择, 
+            🇺🇸自动选择, 🇹🇼自动选择, 
+            🇯🇵自动选择, 🇰🇷自动选择, 
+            🇨🇦自动选择, 🇦🇺自动选择, 
+            🇬🇧自动选择, 🇫🇷自动选择, 
+            🇩🇪自动选择, 🇨🇳自动选择, 
+            🧩自动其他, 📋自动全部, 
+
+            🇭🇰负载均衡, 🇸🇬负载均衡, 
+            🇺🇸负载均衡, 🇹🇼负载均衡, 
+            🇯🇵负载均衡, 🇰🇷负载均衡, 
+            🇨🇦负载均衡, 🇦🇺负载均衡, 
+            🇬🇧负载均衡, 🇫🇷负载均衡, 
+            🇩🇪负载均衡, 🇨🇳负载均衡, 
+            🧩均衡其他, 📋均衡全部
+            ]
+
+
+China: &China
+  type: select
+  disable-udp: false
+  hidden: false
+  include-all: true
+  proxies: [
+            🇨🇳手动选择, 🇨🇳故障转移, 
+            🇨🇳自动选择, 🇨🇳负载均衡, 
+
+            🎯代理, 🌐其他,
+            🔗链式代理, ➡️直连, 
+
+            🟨手动选择, 🟦手动选择, 
+            🟢故障转移, 🟣故障转移, 
+            🔶自动选择, 🔷自动选择, 
+            🧩手动其他, 📋手动全部, 
+
+            ⛔阻断, ↩️绕过, 
+
+            🇭🇰手动选择, 🇸🇬手动选择, 
+            🇺🇸手动选择, 🇹🇼手动选择, 
+            🇯🇵手动选择, 🇰🇷手动选择, 
+            🇨🇦手动选择, 🇦🇺手动选择, 
+            🇬🇧手动选择, 🇫🇷手动选择, 
+            🇩🇪手动选择, 
+
+            🇭🇰故障转移, 🇸🇬故障转移, 
+            🇺🇸故障转移, 🇹🇼故障转移, 
+            🇯🇵故障转移, 🇰🇷故障转移, 
+            🇨🇦故障转移, 🇦🇺故障转移, 
+            🇬🇧故障转移, 🇫🇷故障转移, 
+            🇩🇪故障转移, 
+            🧩回退其他, 📋回退全部,
+
+            🇭🇰自动选择, 🇸🇬自动选择, 
+            🇺🇸自动选择, 🇹🇼自动选择, 
+            🇯🇵自动选择, 🇰🇷自动选择, 
+            🇨🇦自动选择, 🇦🇺自动选择, 
+            🇬🇧自动选择, 🇫🇷自动选择, 
+            🇩🇪自动选择, 
+            🧩自动其他, 📋自动全部, 
+
+            🇭🇰负载均衡, 🇸🇬负载均衡, 
+            🇺🇸负载均衡, 🇹🇼负载均衡, 
+            🇯🇵负载均衡, 🇰🇷负载均衡, 
+            🇨🇦负载均衡, 🇦🇺负载均衡, 
+            🇬🇧负载均衡, 🇫🇷负载均衡, 
+            🇩🇪负载均衡, 
+            🧩均衡其他, 📋均衡全部
+            ]
+
 
 Global_Select: &Global_Select
   type: select
@@ -378,11 +464,12 @@ Global_Select: &Global_Select
             🎯代理, 🌐其他, 
             🔗链式代理, 
             ⛔阻断, ↩️绕过, 
+
             🟨手动选择, 🟦手动选择, 
             🟢故障转移, 🟣故障转移, 
             🔶自动选择, 🔷自动选择, 
             🧩手动其他, 📋手动全部, 
-            中转, 落地, 
+
             Pornhub, 
             TikTok, 
             Netflix, 
@@ -403,28 +490,37 @@ Global_Select: &Global_Select
             OpenAI, 
             Apple, 
             Microsoft, 
+            China, 
+
             🇭🇰手动选择, 🇸🇬手动选择, 
             🇺🇸手动选择, 🇹🇼手动选择, 
             🇯🇵手动选择, 🇰🇷手动选择, 
-            🇦🇺手动选择, 🇬🇧手动选择, 
-            🇫🇷手动选择, 🇩🇪手动选择, 
+            🇨🇦手动选择, 🇦🇺手动选择, 
+            🇬🇧手动选择, 🇫🇷手动选择, 
+            🇩🇪手动选择, 🇨🇳手动选择, 
+
             🇭🇰故障转移, 🇸🇬故障转移, 
             🇺🇸故障转移, 🇹🇼故障转移, 
             🇯🇵故障转移, 🇰🇷故障转移, 
-            🇦🇺故障转移, 🇬🇧故障转移, 
-            🇫🇷故障转移, 🇩🇪故障转移, 
+            🇨🇦故障转移, 🇦🇺故障转移, 
+            🇬🇧故障转移, 🇫🇷故障转移, 
+            🇩🇪故障转移, 🇨🇳故障转移, 
             🧩回退其他, 📋回退全部,
+
             🇭🇰自动选择, 🇸🇬自动选择, 
             🇺🇸自动选择, 🇹🇼自动选择, 
             🇯🇵自动选择, 🇰🇷自动选择, 
-            🇦🇺自动选择, 🇬🇧自动选择, 
-            🇫🇷自动选择, 🇩🇪自动选择, 
+            🇨🇦自动选择, 🇦🇺自动选择, 
+            🇬🇧自动选择, 🇫🇷自动选择, 
+            🇩🇪自动选择, 🇨🇳自动选择, 
             🧩自动其他, 📋自动全部, 
+
             🇭🇰负载均衡, 🇸🇬负载均衡, 
             🇺🇸负载均衡, 🇹🇼负载均衡, 
             🇯🇵负载均衡, 🇰🇷负载均衡, 
-            🇦🇺负载均衡, 🇬🇧负载均衡, 
-            🇫🇷负载均衡, 🇩🇪负载均衡, 
+            🇨🇦负载均衡, 🇦🇺负载均衡, 
+            🇬🇧负载均衡, 🇫🇷负载均衡, 
+            🇩🇪负载均衡, 🇨🇳负载均衡, 
             🧩均衡其他, 📋均衡全部
             ]
 
@@ -437,14 +533,18 @@ Global: &Global
   include-all: true
   proxies: [
             ☀️全局, 
+
             🎯代理, 🌐其他, 
-            🔗链式代理, 
+            🔗链式代理, ➡️直连, 
             ⛔阻断, ↩️绕过, 
+
             🟨手动选择, 🟦手动选择, 
             🟢故障转移, 🟣故障转移, 
             🔶自动选择, 🔷自动选择, 
             🧩手动其他, 📋手动全部, 
+
             中转, 落地, 
+
             Pornhub, 
             TikTok, 
             Netflix, 
@@ -465,28 +565,37 @@ Global: &Global
             OpenAI, 
             Apple, 
             Microsoft, 
+            China, 
+
             🇭🇰手动选择, 🇸🇬手动选择, 
             🇺🇸手动选择, 🇹🇼手动选择, 
             🇯🇵手动选择, 🇰🇷手动选择, 
-            🇦🇺手动选择, 🇬🇧手动选择, 
-            🇫🇷手动选择, 🇩🇪手动选择, 
+            🇨🇦手动选择, 🇦🇺手动选择, 
+            🇬🇧手动选择, 🇫🇷手动选择, 
+            🇩🇪手动选择, 🇨🇳手动选择, 
+
             🇭🇰故障转移, 🇸🇬故障转移, 
             🇺🇸故障转移, 🇹🇼故障转移, 
             🇯🇵故障转移, 🇰🇷故障转移, 
-            🇦🇺故障转移, 🇬🇧故障转移, 
-            🇫🇷故障转移, 🇩🇪故障转移, 
+            🇨🇦故障转移, 🇦🇺故障转移, 
+            🇬🇧故障转移, 🇫🇷故障转移, 
+            🇩🇪故障转移, 🇨🇳故障转移, 
             🧩回退其他, 📋回退全部,
+
             🇭🇰自动选择, 🇸🇬自动选择, 
             🇺🇸自动选择, 🇹🇼自动选择, 
             🇯🇵自动选择, 🇰🇷自动选择, 
-            🇦🇺自动选择, 🇬🇧自动选择, 
-            🇫🇷自动选择, 🇩🇪自动选择, 
+            🇨🇦自动选择, 🇦🇺自动选择, 
+            🇬🇧自动选择, 🇫🇷自动选择, 
+            🇩🇪自动选择, 🇨🇳自动选择, 
             🧩自动其他, 📋自动全部, 
+
             🇭🇰负载均衡, 🇸🇬负载均衡, 
             🇺🇸负载均衡, 🇹🇼负载均衡, 
             🇯🇵负载均衡, 🇰🇷负载均衡, 
-            🇦🇺负载均衡, 🇬🇧负载均衡, 
-            🇫🇷负载均衡, 🇩🇪负载均衡, 
+            🇨🇦负载均衡, 🇦🇺负载均衡, 
+            🇬🇧负载均衡, 🇫🇷负载均衡, 
+            🇩🇪负载均衡, 🇨🇳负载均衡, 
             🧩均衡其他, 📋均衡全部
             ]
 
@@ -530,6 +639,12 @@ proxy-groups:
 
 
   ### Hidden
+
+  - name: ➡️直连
+    type: select
+    proxies: [DIRECT]
+    hidden: true
+
   - name: ↩️绕过
     type: select
     proxies: [PASS]
@@ -548,38 +663,74 @@ proxy-groups:
 
   - name: 🟨手动选择
     type: select
-    proxies: [🇭🇰手动选择, 🇸🇬手动选择, 🇺🇸手动选择, 🇹🇼手动选择, 🇯🇵手动选择, 
-              🇰🇷手动选择, 🇦🇺手动选择, 🇬🇧手动选择, 🇫🇷手动选择, 🇩🇪手动选择]
+    proxies: [
+              🇭🇰手动选择, 🇸🇬手动选择, 
+              🇺🇸手动选择, 🇹🇼手动选择, 
+              🇯🇵手动选择, 🇰🇷手动选择, 
+              🇨🇦手动选择, 🇦🇺手动选择, 
+              🇬🇧手动选择, 🇫🇷手动选择, 
+              🇩🇪手动选择, 🇨🇳手动选择
+              ]
     icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/ji.png"
 
   - name: 🟦手动选择
     type: select
-    proxies: [🇭🇰手动选择, 🇸🇬手动选择, 🇺🇸手动选择, 🇹🇼手动选择, 🇯🇵手动选择, 
-              🇰🇷手动选择, 🇦🇺手动选择, 🇬🇧手动选择, 🇫🇷手动选择, 🇩🇪手动选择]
+    proxies: [
+              🇭🇰手动选择, 🇸🇬手动选择, 
+              🇺🇸手动选择, 🇹🇼手动选择, 
+              🇯🇵手动选择, 🇰🇷手动选择, 
+              🇨🇦手动选择, 🇦🇺手动选择, 
+              🇬🇧手动选择, 🇫🇷手动选择, 
+              🇩🇪手动选择, 🇨🇳手动选择
+              ]
     icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/ni.png"
 
   - name: 🟢故障转移
     type: select
-    proxies: [🇭🇰故障转移, 🇸🇬故障转移, 🇺🇸故障转移, 🇹🇼故障转移, 🇯🇵故障转移, 
-              🇰🇷故障转移, 🇦🇺故障转移, 🇬🇧故障转移, 🇫🇷故障转移, 🇩🇪故障转移]
+    proxies: [
+              🇭🇰故障转移, 🇸🇬故障转移, 
+              🇺🇸故障转移, 🇹🇼故障转移, 
+              🇯🇵故障转移, 🇰🇷故障转移, 
+              🇨🇦故障转移, 🇦🇺故障转移, 
+              🇬🇧故障转移, 🇫🇷故障转移, 
+              🇩🇪故障转移, 🇨🇳故障转移
+              ]
     icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/tai.png"
 
   - name: 🟣故障转移
     type: select
-    proxies: [🇭🇰故障转移, 🇸🇬故障转移, 🇺🇸故障转移, 🇹🇼故障转移, 🇯🇵故障转移, 
-              🇰🇷故障转移, 🇦🇺故障转移, 🇬🇧故障转移, 🇫🇷故障转移, 🇩🇪故障转移]
+    proxies: [
+              🇭🇰故障转移, 🇸🇬故障转移, 
+              🇺🇸故障转移, 🇹🇼故障转移, 
+              🇯🇵故障转移, 🇰🇷故障转移, 
+              🇨🇦故障转移, 🇦🇺故障转移, 
+              🇬🇧故障转移, 🇫🇷故障转移, 
+              🇩🇪故障转移, 🇨🇳故障转移
+              ]
     icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/mei.png"
 
   - name: 🔶自动选择
     type: select
-    proxies: [🇭🇰自动选择, 🇸🇬自动选择, 🇺🇸自动选择, 🇹🇼自动选择, 🇯🇵自动选择, 
-              🇰🇷自动选择, 🇦🇺自动选择, 🇬🇧自动选择, 🇫🇷自动选择, 🇩🇪自动选择]
+    proxies: [
+              🇭🇰自动选择, 🇸🇬自动选择, 
+              🇺🇸自动选择, 🇹🇼自动选择, 
+              🇯🇵自动选择, 🇰🇷自动选择, 
+              🇨🇦自动选择, 🇦🇺自动选择, 
+              🇬🇧自动选择, 🇫🇷自动选择, 
+              🇩🇪自动选择, 🇨🇳自动选择
+              ]
     icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/Static.png"
 
   - name: 🔷自动选择
     type: select
-    proxies: [🇭🇰自动选择, 🇸🇬自动选择, 🇺🇸自动选择, 🇹🇼自动选择, 🇯🇵自动选择, 
-              🇰🇷自动选择, 🇦🇺自动选择, 🇬🇧自动选择, 🇫🇷自动选择, 🇩🇪自动选择]
+    proxies: [
+              🇭🇰自动选择, 🇸🇬自动选择, 
+              🇺🇸自动选择, 🇹🇼自动选择, 
+              🇯🇵自动选择, 🇰🇷自动选择, 
+              🇨🇦自动选择, 🇦🇺自动选择, 
+              🇬🇧自动选择, 🇫🇷自动选择, 
+              🇩🇪自动选择, 🇨🇳自动选择
+              ]
     icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/Static.png"
 
   - name: 🧩手动其他
@@ -693,6 +844,13 @@ proxy-groups:
     filter: *FilterAll
     icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/Microsoft.png"
 
+  ### China
+  - name: China
+    <<: *China
+    filter: *FilterAll
+    icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/China.png"
+
+
   ### Select
   - name: 🇭🇰手动选择
     <<: *Select
@@ -744,6 +902,17 @@ proxy-groups:
     filter: *FilterDE
     icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/Germany.png"
 
+  - name: 🇨🇳手动选择
+    <<: *Select
+    filter: *FilterCN
+    icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/China.png"
+
+  - name: 🇨🇦手动选择
+    <<: *Select
+    filter: *FilterCA
+    icon: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/icon/Canada.png"
+
+
   ### FallBack
   - name: 🇭🇰故障转移
     <<: *FallBack
@@ -784,6 +953,14 @@ proxy-groups:
   - name: 🇩🇪故障转移
     <<: *FallBack
     filter: *FilterDE
+
+  - name: 🇨🇳故障转移
+    <<: *FallBack
+    filter: *FilterCN
+
+  - name: 🇨🇦故障转移
+    <<: *FallBack
+    filter: *FilterCA
 
   - name: 🧩回退其他
     <<: *FallBack
@@ -834,6 +1011,14 @@ proxy-groups:
     <<: *Auto
     filter: *FilterDE
 
+  - name: 🇨🇳自动选择
+    <<: *Auto
+    filter: *FilterCN
+
+  - name: 🇨🇦自动选择
+    <<: *Auto
+    filter: *FilterCA
+
   - name: 🧩自动其他
     <<: *Auto
     filter: *FilterOthers
@@ -883,6 +1068,14 @@ proxy-groups:
     <<: *LoadBalance
     filter: *FilterDE
 
+  - name: 🇨🇳负载均衡
+    <<: *LoadBalance
+    filter: *FilterCN
+
+  - name: 🇨🇦负载均衡
+    <<: *LoadBalance
+    filter: *FilterCA
+
   - name: 🧩均衡其他
     <<: *LoadBalance
     filter: *FilterOthers
@@ -894,293 +1087,364 @@ proxy-groups:
 # Rule Providers
 rule-providers:
   # LAN
-  LAN:
-    type: http
-    behavior: classical
-    interval: 43200
-    proxy: 🎯代理
-    path-in-bundle: "Lan.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Lan.yaml"
-    path: "./rule_set/LAN.yaml"
-
-  # ChinaDIRECT
-  ChinaDirectIP:
+  private_geoip:
     type: http
     behavior: ipcidr
     format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "geoipcn.mrs"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/geoipcn.mrs"
-    path: "./rule_set/ChinaDirectIP.mrs"
-  
-  ChinaDirectSite:
+    path-in-bundle: "private_geoip.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/private_geoip.mrs"
+    path: "./rule_set/private_geoip.mrs"
+
+  private_geosite:
     type: http
     behavior: domain
     format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "geositecn.mrs"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/geositecn.mrs"
-    path: "./rule_set/ChinaDirectSite.mrs"
+    path-in-bundle: "private_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/private_geosite.mrs"
+    path: "./rule_set/private_geosite.mrs"
 
-  ChinaDirectAdd:
+  # China
+  CN_geoip:
     type: http
-    behavior: classical
+    behavior: ipcidr
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "chinadirectadd.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/chinadirectadd.yaml"
-    path: "./rule_set/ChinaDirectAdd.yaml"
+    path-in-bundle: "CN_geoip.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/CN_geoip.mrs"
+    path: "./rule_set/CN_geoip.mrs"
+  
+  CN_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯代理
+    path-in-bundle: "CN_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/CN_geosite.mrs"
+    path: "./rule_set/CN_geosite.mrs"
+
 
   # Other
-  Gemini:
+  Netflix_geosite:
     type: http
-    behavior: classical
+    behavior: domain
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "Gemini.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Gemini.yaml"
-    path: "./rule_set/Gemini.yaml"
+    path-in-bundle: "Netflix_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Netflix_geosite.mrs"
+    path: "./rule_set/Netflix_geosite.mrs"
 
-  PikPak:
+  Netflix_geoip:
     type: http
-    behavior: classical
+    behavior: ipcidr
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "PikPak.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/PikPak.yaml"
-    path: "./rule_set/PikPak.yaml"
+    path-in-bundle: "Netflix_geoip.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Netflix_geoip.mrs"
+    path: "./rule_set/Netflix_geoip.mrs"
 
-  GlobalMedia:
-    type: http
-    behavior: classical
-    interval: 43200
-    proxy: 🎯代理
-    path-in-bundle: "GlobalMedia.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/GlobalMedia.yaml"
-    path: "./rule_set/GlobalMedia.yaml"
 
-  Telegram:
+  Telegram_geosite:
     type: http
-    behavior: classical
+    behavior: domain
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "Telegram.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Telegram.yaml"
-    path: "./rule_set/Telegram.yaml"
+    path-in-bundle: "Telegram_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Telegram_geosite.mrs"
+    path: "./rule_set/Telegram_geosite.mrs"
 
-  Apple:
+  Telegram_geoip:
     type: http
-    behavior: classical
+    behavior: ipcidr
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "Apple.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Apple.yaml"
-    path: "./rule_set/Apple.yaml"
+    path-in-bundle: "Telegram_geoip.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Telegram_geoip.mrs"
+    path: "./rule_set/Telegram_geoip.mrs"
 
-  Microsoft:
-    type: http
-    behavior: classical
-    interval: 43200
-    proxy: 🎯代理
-    path-in-bundle: "Microsoft.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Microsoft.yaml"
-    path: "./rule_set/Microsoft.yaml"
 
-  Steam:
+  Google_geosite:
     type: http
-    behavior: classical
+    behavior: domain
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "Steam.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Steam.yaml"
-    path: "./rule_set/Steam.yaml"
+    path-in-bundle: "Google_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Google_geosite.mrs"
+    path: "./rule_set/Google_geosite.mrs"
 
-  SteamCN:
+  Google_geoip:
     type: http
-    behavior: classical
+    behavior: ipcidr
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "SteamCN.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/SteamCN.yaml"
-    path: "./rule_set/SteamCN.yaml"
+    path-in-bundle: "Google_geoip.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Google_geoip.mrs"
+    path: "./rule_set/Google_geoip.mrs"
 
-  Discord:
-    type: http
-    behavior: classical
-    interval: 43200
-    proxy: 🎯代理
-    path-in-bundle: "Discord.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Discord.yaml"
-    path: "./rule_set/Discord.yaml"
 
-  Spotify:
+  Cloudflare_geosite:
     type: http
-    behavior: classical
+    behavior: domain
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "Spotify.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Spotify.yaml"
-    path: "./rule_set/Spotify.yaml"
+    path-in-bundle: "Cloudflare_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Cloudflare_geosite.mrs"
+    path: "./rule_set/Cloudflare_geosite.mrs"
 
-  TikTok:
+  Cloudflare_geoip:
     type: http
-    behavior: classical
+    behavior: ipcidr
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "TikTok.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/TikTok.yaml"
-    path: "./rule_set/TikTok.yaml"
+    path-in-bundle: "Cloudflare_geoip.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Cloudflare_geoip.mrs"
+    path: "./rule_set/Cloudflare_geoip.mrs"
 
-  OpenAI:
-    type: http
-    behavior: classical
-    interval: 43200
-    proxy: 🎯代理
-    path-in-bundle: "OpenAI.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/OpenAI.yaml"
-    path: "./rule_set/OpenAI.yaml"
 
-  Epic:
-    type: http
-    behavior: classical
-    interval: 43200
-    proxy: 🎯代理
-    path-in-bundle: "Epic.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Epic.yaml"
-    path: "./rule_set/Epic.yaml"
 
-  Google:
+  Gemini_geosite:
     type: http
-    behavior: classical
+    behavior: domain
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "Google.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Google.yaml"
-    path: "./rule_set/Google.yaml"
+    path-in-bundle: "Gemini_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Gemini_geosite.mrs"
+    path: "./rule_set/Gemini_geosite.mrs"
 
-  GitHub:
+  PikPak_geosite:
     type: http
-    behavior: classical
+    behavior: domain
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "GitHub.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/GitHub.yaml"
-    path: "./rule_set/GitHub.yaml"
+    path-in-bundle: "PikPak_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/PikPak_geosite.mrs"
+    path: "./rule_set/PikPak_geosite.mrs"
 
-  YouTube:
+  GlobalMedia_geosite:
     type: http
-    behavior: classical
+    behavior: domain
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "YouTube.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/YouTube.yaml"
-    path: "./rule_set/YouTube.yaml"
+    path-in-bundle: "GlobalMedia_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/GlobalMedia_geosite.mrs"
+    path: "./rule_set/GlobalMedia_geosite.mrs"
 
-  Pornhub:
+  Apple_geosite:
     type: http
-    behavior: classical
+    behavior: domain
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "Pornhub.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Pornhub.yaml"
-    path: "./rule_set/Pornhub.yaml"
+    path-in-bundle: "Apple_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Apple_geosite.mrs"
+    path: "./rule_set/Apple_geosite.mrs"
 
-  Cloudflare:
+  Microsoft_geosite:
     type: http
-    behavior: classical
+    behavior: domain
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "Cloudflare.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Cloudflare.yaml"
-    path: "./rule_set/Cloudflare.yaml"
+    path-in-bundle: "Microsoft_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Microsoft_geosite.mrs"
+    path: "./rule_set/Microsoft_geosite.mrs"
 
-  Netflix:
+  Steam_geosite:
     type: http
-    behavior: classical
+    behavior: domain
+    format: mrs
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "Netflix.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Netflix.yaml"
-    path: "./rule_set/Netflix.yaml"
+    path-in-bundle: "Steam_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Steam_geosite.mrs"
+    path: "./rule_set/Steam_geosite.mrs"
 
-  Instagram:
+  SteamCN_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯代理
+    path-in-bundle: "SteamCN_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/SteamCN_geosite.mrs"
+    path: "./rule_set/SteamCN_geosite.mrs"
+
+  Discord_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯代理
+    path-in-bundle: "Discord_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Discord_geosite.mrs"
+    path: "./rule_set/Discord_geosite.mrs"
+
+  Spotify_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯代理
+    path-in-bundle: "Spotify_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Spotify_geosite.mrs"
+    path: "./rule_set/Spotify_geosite.mrs"
+
+  TikTok_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯代理
+    path-in-bundle: "TikTok_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/TikTok_geosite.mrs"
+    path: "./rule_set/TikTok_geosite.mrs"
+
+  OpenAI_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯代理
+    path-in-bundle: "OpenAI_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/OpenAI_geosite.mrs"
+    path: "./rule_set/OpenAI_geosite.mrs"
+
+  GitHub_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯代理
+    path-in-bundle: "GitHub_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/GitHub_geosite.mrs"
+    path: "./rule_set/GitHub_geosite.mrs"
+
+  YouTube_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯代理
+    path-in-bundle: "YouTube_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/YouTube_geosite.mrs"
+    path: "./rule_set/YouTube_geosite.mrs"
+
+  Instagram_geosite:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    proxy: 🎯代理
+    path-in-bundle: "Instagram_geosite.mrs"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Instagram_geosite.mrs"
+    path: "./rule_set/Instagram_geosite.mrs"
+
+
+  Ex_Pornhub:
     type: http
     behavior: classical
     interval: 43200
     proxy: 🎯代理
-    path-in-bundle: "Instagram.yaml"
-    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Instagram.yaml"
-    path: "./rule_set/Instagram.yaml"
+    path-in-bundle: "Ex_Pornhub.yaml"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Ex_Pornhub.yaml"
+    path: "./rule_set/Ex_Pornhub.yaml"
+
+  Ex_Epic:
+    type: http
+    behavior: classical
+    interval: 43200
+    proxy: 🎯代理
+    path-in-bundle: "Ex_Epic.yaml"
+    url: "https://raw.githubusercontent.com/Tangerinell/mihomo_rules_profile/master/rules/Ex_Epic.yaml"
+    path: "./rule_set/Ex_Epic.yaml"
 
 # Rules
 rules:
 
-  # LAN
-  - RULE-SET,LAN,DIRECT
+  # private
+  - RULE-SET,private_geosite,DIRECT
+  - RULE-SET,private_geoip,DIRECT
 
   # Steam
-  - RULE-SET,SteamCN,DIRECT
-  - RULE-SET,Steam,Steam
+  - RULE-SET,SteamCN_geosite,China
+  - RULE-SET,Steam_geosite,Steam
 
   # Epic
-  - RULE-SET,Epic,Epic
+  - RULE-SET,Ex_Epic,Epic
 
   # Telegram
-  - RULE-SET,Telegram,Telegram
+  - RULE-SET,Telegram_geosite,Telegram
+  - RULE-SET,Telegram_geoip,Telegram
 
   # Spotify
-  - RULE-SET,Spotify,Spotify
+  - RULE-SET,Spotify_geosite,Spotify
 
   # Instagram
-  - RULE-SET,Instagram,Instagram
+  - RULE-SET,Instagram_geosite,Instagram
 
   # GitHub
-  - RULE-SET,GitHub,GitHub
+  - RULE-SET,GitHub_geosite,GitHub
 
   # PikPak
-  - RULE-SET,PikPak,PikPak
+  - RULE-SET,PikPak_geosite,PikPak
 
   # Discord
-  - RULE-SET,Discord,Discord
+  - RULE-SET,Discord_geosite,Discord
 
   # TikTok
-  - RULE-SET,TikTok,TikTok
+  - RULE-SET,TikTok_geosite,TikTok
 
   # Pornhub
-  - RULE-SET,Pornhub,Pornhub
+  - RULE-SET,Ex_Pornhub,Pornhub
 
   # Gemini
-  - RULE-SET,Gemini,Gemini
+  - RULE-SET,Gemini_geosite,Gemini
 
   # OpenAI
-  - RULE-SET,OpenAI,OpenAI
+  - RULE-SET,OpenAI_geosite,OpenAI
 
   # YouTube
-  - RULE-SET,YouTube,YouTube
+  - RULE-SET,YouTube_geosite,YouTube
 
   # Netflix
-  - RULE-SET,Netflix,Netflix
+  - RULE-SET,Netflix_geosite,Netflix
+  - RULE-SET,Netflix_geoip,Netflix
 
   # GlobalMedia
-  - RULE-SET,GlobalMedia,GlobalMedia
+  - RULE-SET,GlobalMedia_geosite,GlobalMedia
 
   # Google
-  - RULE-SET,Google,Google
+  - RULE-SET,Google_geosite,Google
+  - RULE-SET,Google_geoip,Google
 
   # Apple
-  - RULE-SET,Apple,Apple
+  - RULE-SET,Apple_geosite,Apple
 
   # Microsoft
-  - RULE-SET,Microsoft,Microsoft
+  - RULE-SET,Microsoft_geosite,Microsoft
 
   # Cloudflare
-  - RULE-SET,Cloudflare,Cloudflare
+  - RULE-SET,Cloudflare_geosite,Cloudflare
+  - RULE-SET,Cloudflare_geoip,Cloudflare
 
-  # ChinaDIRECT
-  - RULE-SET,ChinaDirectSite,DIRECT
-  - RULE-SET,ChinaDirectIP,DIRECT
-  - RULE-SET,ChinaDirectAdd,DIRECT
+  # China
+  - RULE-SET,CN_geosite,China
+  - RULE-SET,CN_geoip,China
 
   - MATCH,🌐其他

@@ -111,12 +111,12 @@ dns:
     "rule-set:cn-domain": *cn-dns
 
 hosts: 
-  '*.backloop.dev': 127.0.0.1
-  '*.localtest.me': 127.0.0.1
-  '*.lvh.me': 127.0.0.1
-  '*.vcap.me': 127.0.0.1
-  '*.traefik.me': 127.0.0.1
-  '*.readymade.dev': 127.0.0.1
+  "*.backloop.dev": 127.0.0.1
+  "*.localtest.me": 127.0.0.1
+  "*.lvh.me": 127.0.0.1
+  "*.vcap.me": 127.0.0.1
+  "*.traefik.me": 127.0.0.1
+  "*.readymade.dev": 127.0.0.1
 
 sniffer:
   enable: true
