@@ -8,13 +8,13 @@
 
 | 特性 | `OneTouch_Config.yaml` | `Pro_en.yaml` | `MihomoPro_Config.yaml` | `Mini_en.yaml` | `Lite_en.yaml` |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **大小** | 12.2 KB | 14.9 KB | 22.3 KB | 4.8 KB | 10.0 KB |
+| **大小** | 12.2 KB | 15.2 KB | 22.3 KB | 4.8 KB | 10.7 KB |
 | **混合端口** | 7893 | 7893 | 7893 | 7893 | 7893 |
 | **面板地址** | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 |
 | **运行模式** | rule | rule | rule | rule | rule |
 | **TUN** | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 |
-| **策略组** | **14** | **37** | **51** | **3** | **17** |
-| **规则数** | **23** | **30** | **40** | **8** | **19** |
+| **策略组** | **14** | **37** | **51** | **3** | **18** |
+| **规则数** | **23** | **30** | **40** | **8** | **21** |
 
 ## 📄 配置详情
 
@@ -43,7 +43,7 @@
 </details>
 
 #### 📝 Pro_en.yaml
-- **路径**: `Pro_en.yaml` | **大小**: 14.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Pro_en.yaml)
+- **路径**: `Pro_en.yaml` | **大小**: 15.2 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Pro_en.yaml)
 - **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (37个)</summary>
@@ -118,10 +118,10 @@
 </details>
 
 #### 📝 Lite_en.yaml
-- **路径**: `Lite_en.yaml` | **大小**: 10.0 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Lite_en.yaml)
+- **路径**: `Lite_en.yaml` | **大小**: 10.7 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Lite_en.yaml)
 - **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
 <details>
-<summary>🔍 策略组 (17个)</summary>
+<summary>🔍 策略组 (18个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -130,6 +130,7 @@
 | 👆 AI | `select` |
 | 👆 DEV | `select` |
 | 👆 STREAMING | `select` |
+| 👆 GOOGLE | `select` |
 | 👆 APPLE | `select` |
 | 👆 OUTCN | `select` |
 | 👆 CN | `select` |

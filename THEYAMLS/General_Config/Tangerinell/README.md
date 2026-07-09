@@ -7,7 +7,7 @@
 ## 📄 配置详情
 
 #### 📝 mihomo.yaml
-- **路径**: `mihomo.yaml` | **大小**: 40.6 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Tangerinell/mihomo.yaml)
+- **路径**: `mihomo.yaml` | **大小**: 41.1 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Tangerinell/mihomo.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (93个)</summary>
@@ -15,8 +15,8 @@
 | 名称 | 类型 |
 | :--- | :--- |
 | 👆 GLOBAL | `select` |
-| 👆 ☀️全局 | `select` |
-| 👆 🎯代理 | `select` |
+| 👆 ⚙️路由 | `select` |
+| 👆 🎯默认 | `select` |
 | 👆 🌐其他 | `select` |
 | 👆 中转 | `select` |
 | 👆 落地 | `select` |
