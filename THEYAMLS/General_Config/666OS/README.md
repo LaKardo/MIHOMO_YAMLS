@@ -8,18 +8,18 @@
 
 | 特性 | `OneTouch_Config.yaml` | `Pro_en.yaml` | `MihomoPro_Config.yaml` | `Mini_en.yaml` | `Lite_en.yaml` |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **大小** | 12.2 KB | 15.2 KB | 22.3 KB | 4.8 KB | 10.7 KB |
+| **大小** | 12.1 KB | 15.4 KB | 22.2 KB | 4.7 KB | 11.0 KB |
 | **混合端口** | 7893 | 7893 | 7893 | 7893 | 7893 |
 | **面板地址** | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 |
 | **运行模式** | rule | rule | rule | rule | rule |
 | **TUN** | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 |
 | **策略组** | **14** | **37** | **51** | **3** | **18** |
-| **规则数** | **23** | **30** | **40** | **8** | **21** |
+| **规则数** | **22** | **29** | **39** | **7** | **20** |
 
 ## 📄 配置详情
 
 #### 📝 OneTouch_Config.yaml
-- **路径**: `OneTouch_Config.yaml` | **大小**: 12.2 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/OneTouch_Config.yaml)
+- **路径**: `OneTouch_Config.yaml` | **大小**: 12.1 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/OneTouch_Config.yaml)
 - **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (14个)</summary>
@@ -43,7 +43,7 @@
 </details>
 
 #### 📝 Pro_en.yaml
-- **路径**: `Pro_en.yaml` | **大小**: 15.2 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Pro_en.yaml)
+- **路径**: `Pro_en.yaml` | **大小**: 15.4 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Pro_en.yaml)
 - **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (37个)</summary>
@@ -74,7 +74,7 @@
 </details>
 
 #### 📝 MihomoPro_Config.yaml
-- **路径**: `MihomoPro_Config.yaml` | **大小**: 22.3 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/MihomoPro_Config.yaml)
+- **路径**: `MihomoPro_Config.yaml` | **大小**: 22.2 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/MihomoPro_Config.yaml)
 - **模式**: rule | **TUN**: 🚫 | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (51个)</summary>
@@ -105,7 +105,7 @@
 </details>
 
 #### 📝 Mini_en.yaml
-- **路径**: `Mini_en.yaml` | **大小**: 4.8 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Mini_en.yaml)
+- **路径**: `Mini_en.yaml` | **大小**: 4.7 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Mini_en.yaml)
 - **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (3个)</summary>
@@ -118,7 +118,7 @@
 </details>
 
 #### 📝 Lite_en.yaml
-- **路径**: `Lite_en.yaml` | **大小**: 10.7 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Lite_en.yaml)
+- **路径**: `Lite_en.yaml` | **大小**: 11.0 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Lite_en.yaml)
 - **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (18个)</summary>

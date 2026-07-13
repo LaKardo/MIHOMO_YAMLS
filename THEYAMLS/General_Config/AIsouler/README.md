@@ -8,25 +8,26 @@
 
 | 特性 | `mihomoconfig.yaml` | `mihomoConfigLite.yaml` |
 | :--- | :--- | :--- |
-| **大小** | 23.9 KB | 15.3 KB |
+| **大小** | 23.4 KB | 15.6 KB |
 | **混合端口** | - | - |
 | **面板地址** | 127.0.0.1:9090 | 127.0.0.1:9090 |
 | **运行模式** | rule | rule |
 | **TUN** | ✅ | ✅ |
-| **策略组** | **43** | **24** |
+| **策略组** | **36** | **25** |
 | **规则数** | **43** | **18** |
 
 ## 📄 配置详情
 
 #### 📝 mihomoconfig.yaml
-- **路径**: `mihomoconfig.yaml` | **大小**: 23.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/AIsouler/mihomoconfig.yaml)
+- **路径**: `mihomoconfig.yaml` | **大小**: 23.4 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/AIsouler/mihomoconfig.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (43个)</summary>
+<summary>🔍 策略组 (36个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
 | 👆 默认代理 | `select` |
+| 👆 手动选择 | `select` |
 | ♻️ 自动选择 | `url-test` |
 | ⚖️ 负载均衡 | `load-balance` |
 | 👆 AI | `select` |
@@ -45,19 +46,19 @@
 | 👆 AdBlock | `select` |
 | 👆 漏网之鱼 | `select` |
 | 👆 直连 | `select` |
-| 👆 香港 | `select` |
-| ... | 还有 23 个 |
+| ... | 还有 16 个 |
 </details>
 
 #### 📝 mihomoConfigLite.yaml
-- **路径**: `mihomoConfigLite.yaml` | **大小**: 15.3 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/AIsouler/mihomoConfigLite.yaml)
+- **路径**: `mihomoConfigLite.yaml` | **大小**: 15.6 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/AIsouler/mihomoConfigLite.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (24个)</summary>
+<summary>🔍 策略组 (25个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
 | 👆 默认代理 | `select` |
+| 👆 手动选择 | `select` |
 | ♻️ 自动选择 | `url-test` |
 | 👆 AI | `select` |
 | 👆 Telegram | `select` |
@@ -76,6 +77,5 @@
 | 👆 台湾省 | `select` |
 | ♻️ 台湾省-自动选择 | `url-test` |
 | 👆 低倍率节点 | `select` |
-| ♻️ 低倍率节点-自动选择 | `url-test` |
-| ... | 还有 4 个 |
+| ... | 还有 5 个 |
 </details>

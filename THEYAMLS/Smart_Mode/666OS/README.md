@@ -8,18 +8,18 @@
 
 | 特性 | `OneSmart_Config.yaml` | `OneSmart_Lite_Config.yaml` |
 | :--- | :--- | :--- |
-| **大小** | 20.2 KB | 12.5 KB |
+| **大小** | 20.1 KB | 12.4 KB |
 | **混合端口** | 7893 | 7893 |
 | **面板地址** | 127.0.0.1:9090 | 127.0.0.1:9090 |
 | **运行模式** | rule | rule |
 | **TUN** | 🚫 | 🚫 |
 | **策略组** | **31** | **16** |
-| **规则数** | **36** | **21** |
+| **规则数** | **35** | **20** |
 
 ## 📄 配置详情
 
 #### 📝 OneSmart_Config.yaml
-- **路径**: `OneSmart_Config.yaml` | **大小**: 20.2 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/666OS/OneSmart_Config.yaml)
+- **路径**: `OneSmart_Config.yaml` | **大小**: 20.1 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/666OS/OneSmart_Config.yaml)
 - **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (31个)</summary>
@@ -50,7 +50,7 @@
 </details>
 
 #### 📝 OneSmart_Lite_Config.yaml
-- **路径**: `OneSmart_Lite_Config.yaml` | **大小**: 12.5 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/666OS/OneSmart_Lite_Config.yaml)
+- **路径**: `OneSmart_Lite_Config.yaml` | **大小**: 12.4 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/Smart_Mode/666OS/OneSmart_Lite_Config.yaml)
 - **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (16个)</summary>
