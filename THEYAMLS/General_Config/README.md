@@ -6,42 +6,46 @@
 
 ## ⚔️ 配置横向对比
 
-| 特性 | `mihomo.yaml` | `Clash_Sample.yaml` | `backup.yaml` | `AIB.yaml` | `AIO.yaml` | `mihomoconfig.yaml` | `mihomoConfigLite.yaml` | `Ayanami0_config_geo-lite.yaml` | `mihomo_multi.yaml` | `mihomo_single.yaml` | `2-subscription-clash-rule-set.yaml` | `base-clash-ruleset.yaml` | `3-subscription-clash-rule-set.yaml` | `Clashmi.yaml` | `Clashmi-fx.yaml` | `clash-fallback-all.yaml` | `clash-fallback-std.yaml` | `clash-fallback-dialer.yaml` | `clash-all-fallback.yaml` | `clash-fallback.yaml` | `config.yaml` | `us_la.yaml` | `Clash-Airport.yaml` | `OneTouch_Config.yaml` | `Pro_en.yaml` | `MihomoPro_Config.yaml` | `Mini_en.yaml` | `Lite_en.yaml` | `config.yaml` | `mihomo.yaml` | `mihomo.yaml` | `configfull_lite.yaml` | `configfull_NoAd.yaml` | `configfull.yaml` | `Proxy-override.yaml` | `Seven1_fallback_Geo.yaml` | `Seven1_fallback_Rule-Set.yaml` | `mihomo.yaml` | `mihomo.yaml` | `config.yaml` | `MihomoProMax.yaml` | `MihomoAIO.yaml` | `MihomoProPlus.yaml` | `Clash.yaml` | `config.yaml` | `config.yaml` | `config_lite.yaml` | `[Desktop]-WhiteList-03-Non.AntiAD.yaml` | `[通用模版]-WhiteList-02-Min.AntiAD.yaml` | `BlackList-01.yaml` | `BlackList-02-Min.AntiAD.yaml` | `[Mobile]-WhiteList-03-Non.AntiAD.yaml` | `[Mobile]-WhiteList-02-Min.AntiAD.yaml` | `BlackList-03-Non.AntiAD.yaml` | `[Desktop]-WhiteList-02-Min.AntiAD.yaml` | `[Desktop]-WhiteList-01.yaml` | `[通用模版]-WhiteList-01.yaml` | `[通用模版]-WhiteList-03-Non.AntiAD.yaml` | `[Mobile]-WhiteList-01.yaml` | `config.yaml` | `ConfigForClash.yaml` |
+| 特性 | `mihomo_multi.yaml` | `mihomo_single.yaml` | `config.yaml` | `2-subscription-clash-rule-set.yaml` | `base-clash-ruleset.yaml` | `3-subscription-clash-rule-set.yaml` | `mihomoconfig.yaml` | `mihomoConfigLite.yaml` | `configfull_NoAd.yaml` | `configfull.yaml` | `configfull_lite.yaml` | `Seven1_fallback_Geo.yaml` | `Seven1_fallback_Rule-Set.yaml` | `config.yaml` | `Clash.yaml` | `mihomo.yaml` | `config.yaml` | `AIB.yaml` | `AIO.yaml` | `mihomo.yaml` | `[通用模版]-WhiteList-01.yaml` | `[Desktop]-WhiteList-02-Min.AntiAD.yaml` | `[通用模版]-WhiteList-02-Min.AntiAD.yaml` | `[Desktop]-WhiteList-03-Non.AntiAD.yaml` | `BlackList-03-Non.AntiAD.yaml` | `[Desktop]-WhiteList-01.yaml` | `BlackList-02-Min.AntiAD.yaml` | `[Mobile]-WhiteList-03-Non.AntiAD.yaml` | `[通用模版]-WhiteList-03-Non.AntiAD.yaml` | `[Mobile]-WhiteList-01.yaml` | `[Mobile]-WhiteList-02-Min.AntiAD.yaml` | `BlackList-01.yaml` | `Lite_en.yaml` | `Pro_en.yaml` | `Mini_en.yaml` | `OneTouch_Config.yaml` | `MihomoPro_Config.yaml` | `Clashmi-fx.yaml` | `Clashmi.yaml` | `config_lite.yaml` | `config.yaml` | `config.yaml` | `Clash_Sample.yaml` | `backup.yaml` | `ConfigForClash.yaml` | `config.yaml` | `mihomo.yaml` | `Clash-Airport.yaml` | `us_la.yaml` | `MihomoProMax.yaml` | `MihomoAIO.yaml` | `MihomoProPlus.yaml` | `mihomo.yaml` | `clash-fallback-std.yaml` | `clash-fallback.yaml` | `clash-fallback-all.yaml` | `clash-fallback-dialer.yaml` | `clash-all-fallback.yaml` | `Ayanami0_config_geo-lite.yaml` | `Proxy-override.yaml` | `mihomo.yaml` |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **大小** | 44.4 KB | 8.4 KB | 12.5 KB | 11.0 KB | 10.8 KB | 23.4 KB | 15.6 KB | 3.9 KB | 12.7 KB | 12.4 KB | 15.8 KB | 13.8 KB | 16.3 KB | 19.5 KB | 18.9 KB | 18.6 KB | 17.3 KB | 16.3 KB | 17.2 KB | 15.9 KB | 12.8 KB | 18.5 KB | 17.5 KB | 12.1 KB | 15.4 KB | 22.2 KB | 4.7 KB | 11.0 KB | 28.5 KB | 30.4 KB | 5.8 KB | 17.7 KB | 34.1 KB | 34.6 KB | 21.6 KB | 20.8 KB | 24.0 KB | 14.6 KB | 15.8 KB | 23.4 KB | 25.7 KB | 28.3 KB | 26.2 KB | 27.3 KB | 18.7 KB | 7.3 KB | 2.9 KB | 696.9 KB | 2053.9 KB | 696.9 KB | 696.9 KB | 696.9 KB | 696.9 KB | 696.9 KB | 696.9 KB | 696.9 KB | 2055.2 KB | 2053.9 KB | 696.9 KB | 13.8 KB | 49.3 KB |
-| **混合端口** | 7890 | 7892 | 7892 | 7890 | 7890 | - | - | 7890 | 7897 | 7897 | - | - | - | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7890 | - | - | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7890 | 8899 | 7890 | 7890 | 7890 | 7890 | 7893 | 7893 | 0 | 7890 | 7890 | 7893 | 7893 | 7893 | 7890 | 7892 | 7893 | 7893 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7892 |
-| **面板地址** | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | - | - | - | - | - | 127.0.0.1:9092 | 127.0.0.1:9092 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | - | 127.0.0.1:9092 | 127.0.0.1:9092 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 0.0.0.0:7891 | - | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | - | 0.0.0.0:9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | :9090 | 127.0.0.1:9090 | - | - | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | :9090 | 0.0.0.0:9090 |
-| **运行模式** | rule | rule | rule | rule | rule | rule | rule | Rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | Rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule |
-| **TUN** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🚫 | ✅ | ✅ | 🚫 | 🚫 | 🚫 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 | ✅ | ✅ | 🚫 | ✅ | ✅ | ✅ | 🚫 | ✅ | ✅ | ✅ | ✅ | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🚫 | 🚫 |
-| **策略组** | **96** | **15** | **22** | **24** | **23** | **36** | **25** | **1** | **33** | **33** | **37** | **27** | **38** | **30** | **30** | **61** | **36** | **35** | **53** | **34** | **26** | **15** | **23** | **14** | **37** | **51** | **3** | **18** | **25** | **80** | **9** | **47** | **59** | **62** | **16** | **43** | **43** | **35** | **29** | **49** | **54** | **61** | **54** | **27** | **13** | **17** | **1** | **154** | **176** | **145** | **144** | **153** | **154** | **143** | **155** | **156** | **177** | **175** | **155** | **29** | **62** |
-| **规则数** | **1** | **11** | **25** | **34** | **34** | **43** | **18** | **11** | **22** | **22** | **25** | **25** | **25** | **34** | **34** | **53** | **43** | **43** | **42** | **43** | **23** | **34** | **36** | **22** | **29** | **39** | **7** | **20** | **35** | **59** | **12** | **38** | **97** | **98** | **216** | **29** | **29** | **17** | **27** | **30** | **45** | **52** | **44** | **68** | **37** | **24** | **16** | **228** | **227** | **187** | **182** | **226** | **227** | **181** | **229** | **234** | **232** | **226** | **232** | **33** | **62** |
+| **大小** | 12.7 KB | 12.4 KB | 18.7 KB | 15.8 KB | 13.8 KB | 16.3 KB | 23.4 KB | 15.6 KB | 34.1 KB | 34.6 KB | 17.7 KB | 20.8 KB | 24.0 KB | 23.4 KB | 27.3 KB | 15.8 KB | 28.5 KB | 11.0 KB | 10.8 KB | 44.4 KB | 2055.2 KB | 696.9 KB | 2053.9 KB | 696.9 KB | 696.9 KB | 696.9 KB | 696.9 KB | 696.9 KB | 2053.9 KB | 696.9 KB | 696.9 KB | 696.9 KB | 11.0 KB | 15.4 KB | 4.7 KB | 12.1 KB | 22.2 KB | 18.9 KB | 19.5 KB | 2.9 KB | 7.3 KB | 13.8 KB | 8.4 KB | 12.5 KB | 49.3 KB | 12.8 KB | 30.5 KB | 17.5 KB | 18.5 KB | 25.7 KB | 28.3 KB | 26.2 KB | 5.8 KB | 17.3 KB | 15.9 KB | 18.6 KB | 16.3 KB | 17.2 KB | 3.9 KB | 21.6 KB | 14.6 KB |
+| **混合端口** | 7897 | 7897 | 7892 | - | - | - | - | - | 7890 | 7890 | 7890 | 7893 | 7893 | 7890 | 7890 | 7890 | 7893 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7890 | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7893 | 7890 | 7892 | 7892 | 7892 | 7890 | 7890 | - | - | 7893 | 7893 | 7893 | 8899 | 7893 | 7893 | 7893 | 7893 | 7893 | 7890 | 7890 | 0 |
+| **面板地址** | - | - | 127.0.0.1:9090 | - | - | - | 127.0.0.1:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | :9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9092 | 127.0.0.1:9092 | - | - | :9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | - | 0.0.0.0:7891 | 127.0.0.1:9092 | 127.0.0.1:9092 | 127.0.0.1:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | - | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 | 127.0.0.1:9090 | 127.0.0.1:9090 | - |
+| **运行模式** | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | Rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | rule | Rule | rule | rule |
+| **TUN** | ✅ | ✅ | 🚫 | 🚫 | 🚫 | 🚫 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🚫 | 🚫 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 | ✅ | ✅ | ✅ | ✅ | 🚫 | ✅ | ✅ | 🚫 | ✅ | ✅ | ✅ | ✅ | 🚫 | 🚫 | 🚫 | 🚫 | ✅ | ✅ | ✅ | ✅ | ✅ | 🚫 | 🚫 | ✅ |
+| **策略组** | **33** | **33** | **13** | **37** | **27** | **38** | **36** | **25** | **59** | **62** | **47** | **43** | **43** | **49** | **27** | **29** | **25** | **24** | **23** | **96** | **177** | **155** | **176** | **154** | **143** | **156** | **144** | **153** | **175** | **155** | **154** | **145** | **18** | **37** | **3** | **14** | **51** | **30** | **30** | **1** | **17** | **29** | **15** | **22** | **62** | **26** | **80** | **23** | **15** | **54** | **61** | **54** | **9** | **36** | **34** | **61** | **35** | **53** | **1** | **16** | **35** |
+| **规则数** | **22** | **22** | **37** | **25** | **25** | **25** | **43** | **18** | **97** | **98** | **38** | **29** | **29** | **30** | **68** | **27** | **35** | **34** | **34** | **1** | **232** | **229** | **227** | **228** | **181** | **234** | **182** | **226** | **226** | **232** | **227** | **187** | **20** | **29** | **7** | **22** | **39** | **34** | **34** | **16** | **24** | **33** | **11** | **25** | **62** | **23** | **59** | **36** | **34** | **45** | **52** | **44** | **12** | **43** | **43** | **53** | **43** | **42** | **11** | **216** | **17** |
 
 ## 📄 配置详情
 
 ### 👤 666OS
 
-#### 📝 OneTouch_Config.yaml
-- **路径**: `666OS/OneTouch_Config.yaml` | **大小**: 12.1 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/OneTouch_Config.yaml)
+#### 📝 Lite_en.yaml
+- **路径**: `666OS/Lite_en.yaml` | **大小**: 11.0 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Lite_en.yaml)
 - **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
 <details>
-<summary>🔍 策略组 (14个)</summary>
+<summary>🔍 策略组 (18个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
-| 👆 一键连 | `select` |
-| 👆 人工智能 | `select` |
-| 👆 社交平台 | `select` |
-| 👆 国际媒体 | `select` |
-| 👆 国内流量 | `select` |
-| 👆 手动选择 | `select` |
-| 👆 直接连接 | `select` |
-| ♻️ 香港自动 | `url-test` |
-| ♻️ 台湾自动 | `url-test` |
-| ♻️ 日本自动 | `url-test` |
-| ♻️ 狮城自动 | `url-test` |
-| ♻️ 韩国自动 | `url-test` |
-| ♻️ 美国自动 | `url-test` |
-| ♻️ 欧洲自动 | `url-test` |
+| 👆 TM | `select` |
+| 👆 SOCIAL | `select` |
+| 👆 AI | `select` |
+| 👆 DEV | `select` |
+| 👆 STREAMING | `select` |
+| 👆 GOOGLE | `select` |
+| 👆 APPLE | `select` |
+| 👆 OUTCN | `select` |
+| 👆 CN | `select` |
+| 👆 MATCH | `select` |
+| 🔧 FALLBACK | `fallback` |
+| 👆 MANUAL | `select` |
+| ♻️ HK | `url-test` |
+| ♻️ TW | `url-test` |
+| ♻️ JP | `url-test` |
+| ♻️ SG | `url-test` |
+| ♻️ KR | `url-test` |
+| ♻️ US | `url-test` |
 </details>
 
 #### 📝 Pro_en.yaml
@@ -75,6 +79,43 @@
 | ... | 还有 17 个 |
 </details>
 
+#### 📝 Mini_en.yaml
+- **路径**: `666OS/Mini_en.yaml` | **大小**: 4.7 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Mini_en.yaml)
+- **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
+<details>
+<summary>🔍 策略组 (3个)</summary>
+
+| 名称 | 类型 |
+| :--- | :--- |
+| 👆 OUTCN | `select` |
+| 👆 CN | `select` |
+| 👆 MATCH | `select` |
+</details>
+
+#### 📝 OneTouch_Config.yaml
+- **路径**: `666OS/OneTouch_Config.yaml` | **大小**: 12.1 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/OneTouch_Config.yaml)
+- **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
+<details>
+<summary>🔍 策略组 (14个)</summary>
+
+| 名称 | 类型 |
+| :--- | :--- |
+| 👆 一键连 | `select` |
+| 👆 人工智能 | `select` |
+| 👆 社交平台 | `select` |
+| 👆 国际媒体 | `select` |
+| 👆 国内流量 | `select` |
+| 👆 手动选择 | `select` |
+| 👆 直接连接 | `select` |
+| ♻️ 香港自动 | `url-test` |
+| ♻️ 台湾自动 | `url-test` |
+| ♻️ 日本自动 | `url-test` |
+| ♻️ 狮城自动 | `url-test` |
+| ♻️ 韩国自动 | `url-test` |
+| ♻️ 美国自动 | `url-test` |
+| ♻️ 欧洲自动 | `url-test` |
+</details>
+
 #### 📝 MihomoPro_Config.yaml
 - **路径**: `666OS/MihomoPro_Config.yaml` | **大小**: 22.2 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/MihomoPro_Config.yaml)
 - **模式**: rule | **TUN**: 🚫 | **IPv6**: ✅
@@ -104,47 +145,6 @@
 | 👆 微软服务 | `select` |
 | 👆 谷歌服务 | `select` |
 | ... | 还有 31 个 |
-</details>
-
-#### 📝 Mini_en.yaml
-- **路径**: `666OS/Mini_en.yaml` | **大小**: 4.7 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Mini_en.yaml)
-- **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
-<details>
-<summary>🔍 策略组 (3个)</summary>
-
-| 名称 | 类型 |
-| :--- | :--- |
-| 👆 OUTCN | `select` |
-| 👆 CN | `select` |
-| 👆 MATCH | `select` |
-</details>
-
-#### 📝 Lite_en.yaml
-- **路径**: `666OS/Lite_en.yaml` | **大小**: 11.0 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/666OS/Lite_en.yaml)
-- **模式**: rule | **TUN**: 🚫 | **IPv6**: 🚫
-<details>
-<summary>🔍 策略组 (18个)</summary>
-
-| 名称 | 类型 |
-| :--- | :--- |
-| 👆 TM | `select` |
-| 👆 SOCIAL | `select` |
-| 👆 AI | `select` |
-| 👆 DEV | `select` |
-| 👆 STREAMING | `select` |
-| 👆 GOOGLE | `select` |
-| 👆 APPLE | `select` |
-| 👆 OUTCN | `select` |
-| 👆 CN | `select` |
-| 👆 MATCH | `select` |
-| 🔧 FALLBACK | `fallback` |
-| 👆 MANUAL | `select` |
-| ♻️ HK | `url-test` |
-| ♻️ TW | `url-test` |
-| ♻️ JP | `url-test` |
-| ♻️ SG | `url-test` |
-| ♻️ KR | `url-test` |
-| ♻️ US | `url-test` |
 </details>
 
 ---
@@ -215,11 +215,11 @@
 ---
 ### 👤 Accademia
 
-#### 📝 [Desktop]-WhiteList-03-Non.AntiAD.yaml
-- **路径**: `Accademia/[Desktop]-WhiteList-03-Non.AntiAD.yaml` | **大小**: 696.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/%5BDesktop%5D-WhiteList-03-Non.AntiAD.yaml)
-- **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
+#### 📝 [通用模版]-WhiteList-01.yaml
+- **路径**: `Accademia/[通用模版]-WhiteList-01.yaml` | **大小**: 2055.2 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/%5B%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88%5D-WhiteList-01.yaml)
+- **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
-<summary>🔍 策略组 (154个)</summary>
+<summary>🔍 策略组 (177个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -234,6 +234,38 @@
 | 👆 📡.<NTP>--ChinaNTP | `select` |
 | 👆 📡.<Protection>--HttpDNS | `select` |
 | 👆 ⛔️.<Protection>--Hijacking | `select` |
+| 👆 ⛔️.<Protection>--Privacy | `select` |
+| 👆 ⛔️.<Protection>--ADblock | `select` |
+| 👆 _________________________________________________________________ | `select` |
+| 👆 💻.<Lan> | `select` |
+| 👆 💻.<NAS>--Synology | `select` |
+| 👆 🔌.<Home>--AqaraGlobal | `select` |
+| 👆 📂.<Drive>--OneDrive | `select` |
+| 👆 📂.<Drive>--Dropbox | `select` |
+| 👆 📂.<Drive>--GoogleDrive | `select` |
+| ... | 还有 157 个 |
+</details>
+
+#### 📝 [Desktop]-WhiteList-02-Min.AntiAD.yaml
+- **路径**: `Accademia/[Desktop]-WhiteList-02-Min.AntiAD.yaml` | **大小**: 696.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/%5BDesktop%5D-WhiteList-02-Min.AntiAD.yaml)
+- **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
+<details>
+<summary>🔍 策略组 (155个)</summary>
+
+| 名称 | 类型 |
+| :--- | :--- |
+| ♻️ 🌐.Line-[Global.VPS] | `url-test` |
+| ♻️ 🌐.Line-[Global] | `url-test` |
+| ♻️ 🌐.Line-[ProxyChain] | `url-test` |
+| 👆 🎚.<Speedtest> | `select` |
+| 👆 __________________________________________________________________ | `select` |
+| 👆 📡.<DNS>--GlobalDNS | `select` |
+| 👆 📡.<DNS>--ChinaDNS | `select` |
+| 👆 📡.<NTP>--GlobalNTP | `select` |
+| 👆 📡.<NTP>--ChinaNTP | `select` |
+| 👆 📡.<Protection>--HttpDNS | `select` |
+| 👆 ⛔️.<Protection>--Hijacking | `select` |
+| 👆 ⛔️.<Protection>--ADblock | `select` |
 | 👆 _________________________________________________________________ | `select` |
 | 👆 💻.<Lan> | `select` |
 | 👆 💻.<NAS>--Synology | `select` |
@@ -242,8 +274,7 @@
 | 👆 📂.<Drive>--Dropbox | `select` |
 | 👆 📂.<Drive>--GoogleDrive | `select` |
 | 👆 📂.<Drive>--MEGA | `select` |
-| 👆 📂.<Drive>--Imgur | `select` |
-| ... | 还有 134 个 |
+| ... | 还有 135 个 |
 </details>
 
 #### 📝 [通用模版]-WhiteList-02-Min.AntiAD.yaml
@@ -277,11 +308,73 @@
 | ... | 还有 156 个 |
 </details>
 
-#### 📝 BlackList-01.yaml
-- **路径**: `Accademia/BlackList-01.yaml` | **大小**: 696.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/BlackList-01.yaml)
+#### 📝 [Desktop]-WhiteList-03-Non.AntiAD.yaml
+- **路径**: `Accademia/[Desktop]-WhiteList-03-Non.AntiAD.yaml` | **大小**: 696.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/%5BDesktop%5D-WhiteList-03-Non.AntiAD.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
 <details>
-<summary>🔍 策略组 (145个)</summary>
+<summary>🔍 策略组 (154个)</summary>
+
+| 名称 | 类型 |
+| :--- | :--- |
+| ♻️ 🌐.Line-[Global.VPS] | `url-test` |
+| ♻️ 🌐.Line-[Global] | `url-test` |
+| ♻️ 🌐.Line-[ProxyChain] | `url-test` |
+| 👆 🎚.<Speedtest> | `select` |
+| 👆 __________________________________________________________________ | `select` |
+| 👆 📡.<DNS>--GlobalDNS | `select` |
+| 👆 📡.<DNS>--ChinaDNS | `select` |
+| 👆 📡.<NTP>--GlobalNTP | `select` |
+| 👆 📡.<NTP>--ChinaNTP | `select` |
+| 👆 📡.<Protection>--HttpDNS | `select` |
+| 👆 ⛔️.<Protection>--Hijacking | `select` |
+| 👆 _________________________________________________________________ | `select` |
+| 👆 💻.<Lan> | `select` |
+| 👆 💻.<NAS>--Synology | `select` |
+| 👆 🔌.<Home>--AqaraGlobal | `select` |
+| 👆 📂.<Drive>--OneDrive | `select` |
+| 👆 📂.<Drive>--Dropbox | `select` |
+| 👆 📂.<Drive>--GoogleDrive | `select` |
+| 👆 📂.<Drive>--MEGA | `select` |
+| 👆 📂.<Drive>--Imgur | `select` |
+| ... | 还有 134 个 |
+</details>
+
+#### 📝 BlackList-03-Non.AntiAD.yaml
+- **路径**: `Accademia/BlackList-03-Non.AntiAD.yaml` | **大小**: 696.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/BlackList-03-Non.AntiAD.yaml)
+- **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
+<details>
+<summary>🔍 策略组 (143个)</summary>
+
+| 名称 | 类型 |
+| :--- | :--- |
+| ♻️ 🌐.Line-[Global.VPS] | `url-test` |
+| ♻️ 🌐.Line-[Global] | `url-test` |
+| ♻️ 🌐.Line-[ProxyChain] | `url-test` |
+| 👆 🎚.<Speedtest> | `select` |
+| 👆 __________________________________________________________________ | `select` |
+| 👆 📡.<DNS>--GlobalDNS | `select` |
+| 👆 📡.<DNS>--ChinaDNS | `select` |
+| 👆 📡.<NTP>--GlobalNTP | `select` |
+| 👆 📡.<NTP>--ChinaNTP | `select` |
+| 👆 📡.<Protection>--HttpDNS | `select` |
+| 👆 ⛔️.<Protection>--Hijacking | `select` |
+| 👆 _________________________________________________________________ | `select` |
+| 👆 💻.<Lan> | `select` |
+| 👆 💻.<NAS>--Synology | `select` |
+| 👆 🔌.<Home>--AqaraGlobal | `select` |
+| 👆 📂.<Drive>--OneDrive | `select` |
+| 👆 📂.<Drive>--Dropbox | `select` |
+| 👆 📂.<Drive>--GoogleDrive | `select` |
+| 👆 📂.<Drive>--MEGA | `select` |
+| 👆 📂.<Drive>--Imgur | `select` |
+| ... | 还有 123 个 |
+</details>
+
+#### 📝 [Desktop]-WhiteList-01.yaml
+- **路径**: `Accademia/[Desktop]-WhiteList-01.yaml` | **大小**: 696.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/%5BDesktop%5D-WhiteList-01.yaml)
+- **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
+<details>
+<summary>🔍 策略组 (156个)</summary>
 
 | 名称 | 类型 |
 | :--- | :--- |
@@ -305,7 +398,7 @@
 | 👆 📂.<Drive>--OneDrive | `select` |
 | 👆 📂.<Drive>--Dropbox | `select` |
 | 👆 📂.<Drive>--GoogleDrive | `select` |
-| ... | 还有 125 个 |
+| ... | 还有 136 个 |
 </details>
 
 #### 📝 BlackList-02-Min.AntiAD.yaml
@@ -370,161 +463,6 @@
 | ... | 还有 133 个 |
 </details>
 
-#### 📝 [Mobile]-WhiteList-02-Min.AntiAD.yaml
-- **路径**: `Accademia/[Mobile]-WhiteList-02-Min.AntiAD.yaml` | **大小**: 696.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/%5BMobile%5D-WhiteList-02-Min.AntiAD.yaml)
-- **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
-<details>
-<summary>🔍 策略组 (154个)</summary>
-
-| 名称 | 类型 |
-| :--- | :--- |
-| ♻️ 🌐.Line-[Global.VPS] | `url-test` |
-| ♻️ 🌐.Line-[Global] | `url-test` |
-| ♻️ 🌐.Line-[ProxyChain] | `url-test` |
-| 👆 🎚.<Speedtest> | `select` |
-| 👆 __________________________________________________________________ | `select` |
-| 👆 📡.<DNS>--GlobalDNS | `select` |
-| 👆 📡.<DNS>--ChinaDNS | `select` |
-| 👆 📡.<NTP>--GlobalNTP | `select` |
-| 👆 📡.<NTP>--ChinaNTP | `select` |
-| 👆 📡.<Protection>--HttpDNS | `select` |
-| 👆 ⛔️.<Protection>--Hijacking | `select` |
-| 👆 ⛔️.<Protection>--ADblock | `select` |
-| 👆 _________________________________________________________________ | `select` |
-| 👆 💻.<Lan> | `select` |
-| 👆 💻.<NAS>--Synology | `select` |
-| 👆 🔌.<Home>--AqaraGlobal | `select` |
-| 👆 📂.<Drive>--OneDrive | `select` |
-| 👆 📂.<Drive>--Dropbox | `select` |
-| 👆 📂.<Drive>--GoogleDrive | `select` |
-| 👆 📂.<Drive>--MEGA | `select` |
-| ... | 还有 134 个 |
-</details>
-
-#### 📝 BlackList-03-Non.AntiAD.yaml
-- **路径**: `Accademia/BlackList-03-Non.AntiAD.yaml` | **大小**: 696.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/BlackList-03-Non.AntiAD.yaml)
-- **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
-<details>
-<summary>🔍 策略组 (143个)</summary>
-
-| 名称 | 类型 |
-| :--- | :--- |
-| ♻️ 🌐.Line-[Global.VPS] | `url-test` |
-| ♻️ 🌐.Line-[Global] | `url-test` |
-| ♻️ 🌐.Line-[ProxyChain] | `url-test` |
-| 👆 🎚.<Speedtest> | `select` |
-| 👆 __________________________________________________________________ | `select` |
-| 👆 📡.<DNS>--GlobalDNS | `select` |
-| 👆 📡.<DNS>--ChinaDNS | `select` |
-| 👆 📡.<NTP>--GlobalNTP | `select` |
-| 👆 📡.<NTP>--ChinaNTP | `select` |
-| 👆 📡.<Protection>--HttpDNS | `select` |
-| 👆 ⛔️.<Protection>--Hijacking | `select` |
-| 👆 _________________________________________________________________ | `select` |
-| 👆 💻.<Lan> | `select` |
-| 👆 💻.<NAS>--Synology | `select` |
-| 👆 🔌.<Home>--AqaraGlobal | `select` |
-| 👆 📂.<Drive>--OneDrive | `select` |
-| 👆 📂.<Drive>--Dropbox | `select` |
-| 👆 📂.<Drive>--GoogleDrive | `select` |
-| 👆 📂.<Drive>--MEGA | `select` |
-| 👆 📂.<Drive>--Imgur | `select` |
-| ... | 还有 123 个 |
-</details>
-
-#### 📝 [Desktop]-WhiteList-02-Min.AntiAD.yaml
-- **路径**: `Accademia/[Desktop]-WhiteList-02-Min.AntiAD.yaml` | **大小**: 696.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/%5BDesktop%5D-WhiteList-02-Min.AntiAD.yaml)
-- **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
-<details>
-<summary>🔍 策略组 (155个)</summary>
-
-| 名称 | 类型 |
-| :--- | :--- |
-| ♻️ 🌐.Line-[Global.VPS] | `url-test` |
-| ♻️ 🌐.Line-[Global] | `url-test` |
-| ♻️ 🌐.Line-[ProxyChain] | `url-test` |
-| 👆 🎚.<Speedtest> | `select` |
-| 👆 __________________________________________________________________ | `select` |
-| 👆 📡.<DNS>--GlobalDNS | `select` |
-| 👆 📡.<DNS>--ChinaDNS | `select` |
-| 👆 📡.<NTP>--GlobalNTP | `select` |
-| 👆 📡.<NTP>--ChinaNTP | `select` |
-| 👆 📡.<Protection>--HttpDNS | `select` |
-| 👆 ⛔️.<Protection>--Hijacking | `select` |
-| 👆 ⛔️.<Protection>--ADblock | `select` |
-| 👆 _________________________________________________________________ | `select` |
-| 👆 💻.<Lan> | `select` |
-| 👆 💻.<NAS>--Synology | `select` |
-| 👆 🔌.<Home>--AqaraGlobal | `select` |
-| 👆 📂.<Drive>--OneDrive | `select` |
-| 👆 📂.<Drive>--Dropbox | `select` |
-| 👆 📂.<Drive>--GoogleDrive | `select` |
-| 👆 📂.<Drive>--MEGA | `select` |
-| ... | 还有 135 个 |
-</details>
-
-#### 📝 [Desktop]-WhiteList-01.yaml
-- **路径**: `Accademia/[Desktop]-WhiteList-01.yaml` | **大小**: 696.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/%5BDesktop%5D-WhiteList-01.yaml)
-- **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
-<details>
-<summary>🔍 策略组 (156个)</summary>
-
-| 名称 | 类型 |
-| :--- | :--- |
-| ♻️ 🌐.Line-[Global.VPS] | `url-test` |
-| ♻️ 🌐.Line-[Global] | `url-test` |
-| ♻️ 🌐.Line-[ProxyChain] | `url-test` |
-| 👆 🎚.<Speedtest> | `select` |
-| 👆 __________________________________________________________________ | `select` |
-| 👆 📡.<DNS>--GlobalDNS | `select` |
-| 👆 📡.<DNS>--ChinaDNS | `select` |
-| 👆 📡.<NTP>--GlobalNTP | `select` |
-| 👆 📡.<NTP>--ChinaNTP | `select` |
-| 👆 📡.<Protection>--HttpDNS | `select` |
-| 👆 ⛔️.<Protection>--Hijacking | `select` |
-| 👆 ⛔️.<Protection>--Privacy | `select` |
-| 👆 ⛔️.<Protection>--ADblock | `select` |
-| 👆 _________________________________________________________________ | `select` |
-| 👆 💻.<Lan> | `select` |
-| 👆 💻.<NAS>--Synology | `select` |
-| 👆 🔌.<Home>--AqaraGlobal | `select` |
-| 👆 📂.<Drive>--OneDrive | `select` |
-| 👆 📂.<Drive>--Dropbox | `select` |
-| 👆 📂.<Drive>--GoogleDrive | `select` |
-| ... | 还有 136 个 |
-</details>
-
-#### 📝 [通用模版]-WhiteList-01.yaml
-- **路径**: `Accademia/[通用模版]-WhiteList-01.yaml` | **大小**: 2055.2 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/%5B%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88%5D-WhiteList-01.yaml)
-- **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
-<details>
-<summary>🔍 策略组 (177个)</summary>
-
-| 名称 | 类型 |
-| :--- | :--- |
-| ♻️ 🌐.Line-[Global.VPS] | `url-test` |
-| ♻️ 🌐.Line-[Global] | `url-test` |
-| ♻️ 🌐.Line-[ProxyChain] | `url-test` |
-| 👆 🎚.<Speedtest> | `select` |
-| 👆 __________________________________________________________________ | `select` |
-| 👆 📡.<DNS>--GlobalDNS | `select` |
-| 👆 📡.<DNS>--ChinaDNS | `select` |
-| 👆 📡.<NTP>--GlobalNTP | `select` |
-| 👆 📡.<NTP>--ChinaNTP | `select` |
-| 👆 📡.<Protection>--HttpDNS | `select` |
-| 👆 ⛔️.<Protection>--Hijacking | `select` |
-| 👆 ⛔️.<Protection>--Privacy | `select` |
-| 👆 ⛔️.<Protection>--ADblock | `select` |
-| 👆 _________________________________________________________________ | `select` |
-| 👆 💻.<Lan> | `select` |
-| 👆 💻.<NAS>--Synology | `select` |
-| 👆 🔌.<Home>--AqaraGlobal | `select` |
-| 👆 📂.<Drive>--OneDrive | `select` |
-| 👆 📂.<Drive>--Dropbox | `select` |
-| 👆 📂.<Drive>--GoogleDrive | `select` |
-| ... | 还有 157 个 |
-</details>
-
 #### 📝 [通用模版]-WhiteList-03-Non.AntiAD.yaml
 - **路径**: `Accademia/[通用模版]-WhiteList-03-Non.AntiAD.yaml` | **大小**: 2053.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/%5B%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88%5D-WhiteList-03-Non.AntiAD.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
@@ -585,6 +523,68 @@
 | 👆 📂.<Drive>--Dropbox | `select` |
 | 👆 📂.<Drive>--GoogleDrive | `select` |
 | ... | 还有 135 个 |
+</details>
+
+#### 📝 [Mobile]-WhiteList-02-Min.AntiAD.yaml
+- **路径**: `Accademia/[Mobile]-WhiteList-02-Min.AntiAD.yaml` | **大小**: 696.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/%5BMobile%5D-WhiteList-02-Min.AntiAD.yaml)
+- **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
+<details>
+<summary>🔍 策略组 (154个)</summary>
+
+| 名称 | 类型 |
+| :--- | :--- |
+| ♻️ 🌐.Line-[Global.VPS] | `url-test` |
+| ♻️ 🌐.Line-[Global] | `url-test` |
+| ♻️ 🌐.Line-[ProxyChain] | `url-test` |
+| 👆 🎚.<Speedtest> | `select` |
+| 👆 __________________________________________________________________ | `select` |
+| 👆 📡.<DNS>--GlobalDNS | `select` |
+| 👆 📡.<DNS>--ChinaDNS | `select` |
+| 👆 📡.<NTP>--GlobalNTP | `select` |
+| 👆 📡.<NTP>--ChinaNTP | `select` |
+| 👆 📡.<Protection>--HttpDNS | `select` |
+| 👆 ⛔️.<Protection>--Hijacking | `select` |
+| 👆 ⛔️.<Protection>--ADblock | `select` |
+| 👆 _________________________________________________________________ | `select` |
+| 👆 💻.<Lan> | `select` |
+| 👆 💻.<NAS>--Synology | `select` |
+| 👆 🔌.<Home>--AqaraGlobal | `select` |
+| 👆 📂.<Drive>--OneDrive | `select` |
+| 👆 📂.<Drive>--Dropbox | `select` |
+| 👆 📂.<Drive>--GoogleDrive | `select` |
+| 👆 📂.<Drive>--MEGA | `select` |
+| ... | 还有 134 个 |
+</details>
+
+#### 📝 BlackList-01.yaml
+- **路径**: `Accademia/BlackList-01.yaml` | **大小**: 696.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Accademia/BlackList-01.yaml)
+- **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
+<details>
+<summary>🔍 策略组 (145个)</summary>
+
+| 名称 | 类型 |
+| :--- | :--- |
+| ♻️ 🌐.Line-[Global.VPS] | `url-test` |
+| ♻️ 🌐.Line-[Global] | `url-test` |
+| ♻️ 🌐.Line-[ProxyChain] | `url-test` |
+| 👆 🎚.<Speedtest> | `select` |
+| 👆 __________________________________________________________________ | `select` |
+| 👆 📡.<DNS>--GlobalDNS | `select` |
+| 👆 📡.<DNS>--ChinaDNS | `select` |
+| 👆 📡.<NTP>--GlobalNTP | `select` |
+| 👆 📡.<NTP>--ChinaNTP | `select` |
+| 👆 📡.<Protection>--HttpDNS | `select` |
+| 👆 ⛔️.<Protection>--Hijacking | `select` |
+| 👆 ⛔️.<Protection>--Privacy | `select` |
+| 👆 ⛔️.<Protection>--ADblock | `select` |
+| 👆 _________________________________________________________________ | `select` |
+| 👆 💻.<Lan> | `select` |
+| 👆 💻.<NAS>--Synology | `select` |
+| 👆 🔌.<Home>--AqaraGlobal | `select` |
+| 👆 📂.<Drive>--OneDrive | `select` |
+| 👆 📂.<Drive>--Dropbox | `select` |
+| 👆 📂.<Drive>--GoogleDrive | `select` |
+| ... | 还有 125 个 |
 </details>
 
 ---
@@ -825,37 +825,6 @@
 ---
 ### 👤 Lanlan13-14
 
-#### 📝 configfull_lite.yaml
-- **路径**: `Lanlan13-14/configfull_lite.yaml` | **大小**: 17.7 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Lanlan13-14/configfull_lite.yaml)
-- **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
-<details>
-<summary>🔍 策略组 (47个)</summary>
-
-| 名称 | 类型 |
-| :--- | :--- |
-| 👆 节点选择 | `select` |
-| 👆 YouTube | `select` |
-| 👆 Google | `select` |
-| 👆 Meta | `select` |
-| 👆 AI | `select` |
-| 👆 GitHub | `select` |
-| 👆 OneDrive | `select` |
-| 👆 Microsoft | `select` |
-| 👆 Telegram | `select` |
-| 👆 TikTok | `select` |
-| 👆 NETFLIX | `select` |
-| 👆 DisneyPlus | `select` |
-| 👆 HBO | `select` |
-| 👆 Apple | `select` |
-| 👆 Emby | `select` |
-| 👆 哔哩哔哩 | `select` |
-| 👆 哔哩东南亚 | `select` |
-| 👆 巴哈姆特 | `select` |
-| 👆 Spotify | `select` |
-| 👆 国内媒体 | `select` |
-| ... | 还有 27 个 |
-</details>
-
 #### 📝 configfull_NoAd.yaml
 - **路径**: `Lanlan13-14/configfull_NoAd.yaml` | **大小**: 34.1 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Lanlan13-14/configfull_NoAd.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
@@ -916,6 +885,37 @@
 | 👆 HBO | `select` |
 | 👆 Primevideo | `select` |
 | ... | 还有 42 个 |
+</details>
+
+#### 📝 configfull_lite.yaml
+- **路径**: `Lanlan13-14/configfull_lite.yaml` | **大小**: 17.7 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Lanlan13-14/configfull_lite.yaml)
+- **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
+<details>
+<summary>🔍 策略组 (47个)</summary>
+
+| 名称 | 类型 |
+| :--- | :--- |
+| 👆 节点选择 | `select` |
+| 👆 YouTube | `select` |
+| 👆 Google | `select` |
+| 👆 Meta | `select` |
+| 👆 AI | `select` |
+| 👆 GitHub | `select` |
+| 👆 OneDrive | `select` |
+| 👆 Microsoft | `select` |
+| 👆 Telegram | `select` |
+| 👆 TikTok | `select` |
+| 👆 NETFLIX | `select` |
+| 👆 DisneyPlus | `select` |
+| 👆 HBO | `select` |
+| 👆 Apple | `select` |
+| 👆 Emby | `select` |
+| 👆 哔哩哔哩 | `select` |
+| 👆 哔哩东南亚 | `select` |
+| 👆 巴哈姆特 | `select` |
+| 👆 Spotify | `select` |
+| 👆 国内媒体 | `select` |
+| ... | 还有 27 个 |
 </details>
 
 ---
@@ -1051,6 +1051,17 @@
 ---
 ### 👤 Repcz
 
+#### 📝 config_lite.yaml
+- **路径**: `Repcz/config_lite.yaml` | **大小**: 2.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Repcz/config_lite.yaml)
+- **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
+<details>
+<summary>🔍 策略组 (1个)</summary>
+
+| 名称 | 类型 |
+| :--- | :--- |
+| 👆 Proxy | `select` |
+</details>
+
 #### 📝 config.yaml
 - **路径**: `Repcz/config.yaml` | **大小**: 7.3 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Repcz/config.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
@@ -1078,44 +1089,8 @@
 | ♻️ Taiwan | `url-test` |
 </details>
 
-#### 📝 config_lite.yaml
-- **路径**: `Repcz/config_lite.yaml` | **大小**: 2.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Repcz/config_lite.yaml)
-- **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
-<details>
-<summary>🔍 策略组 (1个)</summary>
-
-| 名称 | 类型 |
-| :--- | :--- |
-| 👆 Proxy | `select` |
-</details>
-
 ---
 ### 👤 SHICHUNHUI88
-
-#### 📝 us_la.yaml
-- **路径**: `SHICHUNHUI88/us_la.yaml` | **大小**: 18.5 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/us_la.yaml)
-- **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
-<details>
-<summary>🔍 策略组 (15个)</summary>
-
-| 名称 | 类型 |
-| :--- | :--- |
-| 👆 🌍全球加速 | `select` |
-| ♻️ ♻️随机 | `url-test` |
-| 👆 🎷抖音 | `select` |
-| 👆 🎬TikTok | `select` |
-| 👆 🎮国际游戏 | `select` |
-| 👆 💻Telegram | `select` |
-| 👆 🧠OpenAI | `select` |
-| 👆 💳PayPal | `select` |
-| 👆 🌐Google服务 | `select` |
-| 👆 📺国际流媒体 | `select` |
-| 👆 😊微软服务 | `select` |
-| 👆 🍎苹果服务 | `select` |
-| 👆 ⛩️阿里腾讯 | `select` |
-| 👆 🎯直连 | `select` |
-| 👆 🤡漏网之鱼 | `select` |
-</details>
 
 #### 📝 Clash-Airport.yaml
 - **路径**: `SHICHUNHUI88/Clash-Airport.yaml` | **大小**: 17.5 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/Clash-Airport.yaml)
@@ -1146,6 +1121,31 @@
 | ♻️ 🇯🇵日本随机 | `url-test` |
 | ♻️ 🇸🇬新加坡随机 | `url-test` |
 | ... | 还有 3 个 |
+</details>
+
+#### 📝 us_la.yaml
+- **路径**: `SHICHUNHUI88/us_la.yaml` | **大小**: 18.5 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/SHICHUNHUI88/us_la.yaml)
+- **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
+<details>
+<summary>🔍 策略组 (15个)</summary>
+
+| 名称 | 类型 |
+| :--- | :--- |
+| 👆 🌍全球加速 | `select` |
+| ♻️ ♻️随机 | `url-test` |
+| 👆 🎷抖音 | `select` |
+| 👆 🎬TikTok | `select` |
+| 👆 🎮国际游戏 | `select` |
+| 👆 💻Telegram | `select` |
+| 👆 🧠OpenAI | `select` |
+| 👆 💳PayPal | `select` |
+| 👆 🌐Google服务 | `select` |
+| 👆 📺国际流媒体 | `select` |
+| 👆 😊微软服务 | `select` |
+| 👆 🍎苹果服务 | `select` |
+| 👆 ⛩️阿里腾讯 | `select` |
+| 👆 🎯直连 | `select` |
+| 👆 🤡漏网之鱼 | `select` |
 </details>
 
 ---
@@ -1301,8 +1301,8 @@
 ---
 ### 👤 bgpeer
 
-#### 📝 Clashmi.yaml
-- **路径**: `bgpeer/Clashmi.yaml` | **大小**: 19.5 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/bgpeer/Clashmi.yaml)
+#### 📝 Clashmi-fx.yaml
+- **路径**: `bgpeer/Clashmi-fx.yaml` | **大小**: 18.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/bgpeer/Clashmi-fx.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (30个)</summary>
@@ -1332,8 +1332,8 @@
 | ... | 还有 10 个 |
 </details>
 
-#### 📝 Clashmi-fx.yaml
-- **路径**: `bgpeer/Clashmi-fx.yaml` | **大小**: 18.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/bgpeer/Clashmi-fx.yaml)
+#### 📝 Clashmi.yaml
+- **路径**: `bgpeer/Clashmi.yaml` | **大小**: 19.5 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/bgpeer/Clashmi.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (30个)</summary>
@@ -1493,37 +1493,6 @@
 ---
 ### 👤 liandu2024
 
-#### 📝 clash-fallback-all.yaml
-- **路径**: `liandu2024/clash-fallback-all.yaml` | **大小**: 18.6 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/liandu2024/clash-fallback-all.yaml)
-- **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
-<details>
-<summary>🔍 策略组 (61个)</summary>
-
-| 名称 | 类型 |
-| :--- | :--- |
-| 👆 ChatGPT | `select` |
-| 👆 Gemini | `select` |
-| 👆 Copilot | `select` |
-| 👆 Perplexity | `select` |
-| 👆 Claude | `select` |
-| 👆 Meta AI | `select` |
-| 👆 Grok | `select` |
-| 👆 Groq | `select` |
-| 👆 GitHub | `select` |
-| 👆 Reddit | `select` |
-| 👆 Telegram | `select` |
-| 👆 WhatsApp | `select` |
-| 👆 Facebook | `select` |
-| 👆 BiliBili | `select` |
-| 👆 YouTube | `select` |
-| 👆 TikTok | `select` |
-| 👆 Netflix | `select` |
-| 👆 HBO | `select` |
-| 👆 Disney | `select` |
-| 👆 Amazon | `select` |
-| ... | 还有 41 个 |
-</details>
-
 #### 📝 clash-fallback-std.yaml
 - **路径**: `liandu2024/clash-fallback-std.yaml` | **大小**: 17.3 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/liandu2024/clash-fallback-std.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
@@ -1553,6 +1522,68 @@
 | 🔧 香港-故转 | `fallback` |
 | 👆 香港-手动 | `select` |
 | ... | 还有 16 个 |
+</details>
+
+#### 📝 clash-fallback.yaml
+- **路径**: `liandu2024/clash-fallback.yaml` | **大小**: 15.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/liandu2024/clash-fallback.yaml)
+- **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
+<details>
+<summary>🔍 策略组 (34个)</summary>
+
+| 名称 | 类型 |
+| :--- | :--- |
+| 👆 AI | `select` |
+| 👆 Stream Media | `select` |
+| 👆 GitHub | `select` |
+| 👆 Reddit | `select` |
+| 👆 Nvidia | `select` |
+| 👆 Apple | `select` |
+| 👆 Microsoft | `select` |
+| 👆 Games | `select` |
+| 👆 Crypto | `select` |
+| 👆 Test | `select` |
+| 👆 Block | `select` |
+| 👆 国外 | `select` |
+| 👆 国内 | `select` |
+| 👆 其他 | `select` |
+| 👆 所有-手动 | `select` |
+| ♻️ 所有-自动 | `url-test` |
+| 🔧 香港-故转 | `fallback` |
+| 👆 香港-手动 | `select` |
+| ♻️ 香港-自动 | `url-test` |
+| 🔧 台湾-故转 | `fallback` |
+| ... | 还有 14 个 |
+</details>
+
+#### 📝 clash-fallback-all.yaml
+- **路径**: `liandu2024/clash-fallback-all.yaml` | **大小**: 18.6 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/liandu2024/clash-fallback-all.yaml)
+- **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
+<details>
+<summary>🔍 策略组 (61个)</summary>
+
+| 名称 | 类型 |
+| :--- | :--- |
+| 👆 ChatGPT | `select` |
+| 👆 Gemini | `select` |
+| 👆 Copilot | `select` |
+| 👆 Perplexity | `select` |
+| 👆 Claude | `select` |
+| 👆 Meta AI | `select` |
+| 👆 Grok | `select` |
+| 👆 Groq | `select` |
+| 👆 GitHub | `select` |
+| 👆 Reddit | `select` |
+| 👆 Telegram | `select` |
+| 👆 WhatsApp | `select` |
+| 👆 Facebook | `select` |
+| 👆 BiliBili | `select` |
+| 👆 YouTube | `select` |
+| 👆 TikTok | `select` |
+| 👆 Netflix | `select` |
+| 👆 HBO | `select` |
+| 👆 Disney | `select` |
+| 👆 Amazon | `select` |
+| ... | 还有 41 个 |
 </details>
 
 #### 📝 clash-fallback-dialer.yaml
@@ -1617,37 +1648,6 @@
 | ... | 还有 33 个 |
 </details>
 
-#### 📝 clash-fallback.yaml
-- **路径**: `liandu2024/clash-fallback.yaml` | **大小**: 15.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/liandu2024/clash-fallback.yaml)
-- **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
-<details>
-<summary>🔍 策略组 (34个)</summary>
-
-| 名称 | 类型 |
-| :--- | :--- |
-| 👆 AI | `select` |
-| 👆 Stream Media | `select` |
-| 👆 GitHub | `select` |
-| 👆 Reddit | `select` |
-| 👆 Nvidia | `select` |
-| 👆 Apple | `select` |
-| 👆 Microsoft | `select` |
-| 👆 Games | `select` |
-| 👆 Crypto | `select` |
-| 👆 Test | `select` |
-| 👆 Block | `select` |
-| 👆 国外 | `select` |
-| 👆 国内 | `select` |
-| 👆 其他 | `select` |
-| 👆 所有-手动 | `select` |
-| ♻️ 所有-自动 | `url-test` |
-| 🔧 香港-故转 | `fallback` |
-| 👆 香港-手动 | `select` |
-| ♻️ 香港-自动 | `url-test` |
-| 🔧 台湾-故转 | `fallback` |
-| ... | 还有 14 个 |
-</details>
-
 ---
 ### 👤 liuran001
 
@@ -1686,7 +1686,7 @@
 ### 👤 loneshu7
 
 #### 📝 mihomo.yaml
-- **路径**: `loneshu7/mihomo.yaml` | **大小**: 30.4 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/loneshu7/mihomo.yaml)
+- **路径**: `loneshu7/mihomo.yaml` | **大小**: 30.5 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/loneshu7/mihomo.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (80个)</summary>
