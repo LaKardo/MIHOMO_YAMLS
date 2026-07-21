@@ -8,7 +8,7 @@
 
 | 特性 | `Clashmi-fx.yaml` | `Clashmi.yaml` |
 | :--- | :--- | :--- |
-| **大小** | 18.9 KB | 19.5 KB |
+| **大小** | 18.9 KB | 19.4 KB |
 | **混合端口** | 7893 | 7893 |
 | **面板地址** | 127.0.0.1:9092 | 127.0.0.1:9092 |
 | **运行模式** | rule | rule |
@@ -50,7 +50,7 @@
 </details>
 
 #### 📝 Clashmi.yaml
-- **路径**: `Clashmi.yaml` | **大小**: 19.5 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/bgpeer/Clashmi.yaml)
+- **路径**: `Clashmi.yaml` | **大小**: 19.4 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/bgpeer/Clashmi.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (30个)</summary>
