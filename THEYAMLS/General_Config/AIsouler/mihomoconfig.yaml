@@ -12,13 +12,7 @@ proxy_providers_common:
     type: http,
     interval: 86400,
     proxy: DIRECT,
-    health-check:
-      {
-        enable: true,
-        url: https://g.cn/generate_204,
-        interval: 600,
-        lazy: true,
-      },
+    health-check: { enable: true, url: https://g.cn/generate_204, interval: 600, lazy: true },
   }
 
 # 全局过滤节点
@@ -31,8 +25,8 @@ global_exclude_filter:
 proxy-providers:
   provider1:
     <<: [*proxy_providers_common, *global_exclude_filter]
-    url: '' # 此处引号中间填入机场订阅链接
-    age-secret-key: '' # 此处填入机场订阅链接解密私钥，如果机场订阅链接需要解密才能使用，请将解密私钥填入引号中间，否则不要改动此项
+    url: '' # 此处单引号中间填入机场订阅链接
+    age-secret-key: '' # 此处填入机场订阅链接解密私钥，如果机场订阅链接需要解密才能使用，请将解密私钥填入单引号中间，否则不要改动此项
     path: ./proxy_provider/provider1.yaml
     override:
       additional-prefix: 'p1 | ' # 给节点名称添加前缀，防止不同订阅的节点重名导致出现问题
@@ -73,16 +67,8 @@ profile:
   store-fake-ip: true
 
 # 国内外 DNS 定义
-chinaDNS:
-  &chinaDNS [
-    'https://dns.alidns.com/dns-query#DIRECT',
-    'https://doh.pub/dns-query#DIRECT',
-  ]
-foreignDNS:
-  &foreignDNS [
-    'https://dns.cloudflare.com/dns-query#默认代理',
-    'https://dns.google/dns-query#默认代理',
-  ]
+chinaDNS: &chinaDNS ['https://dns.alidns.com/dns-query#DIRECT', 'https://doh.pub/dns-query#DIRECT']
+foreignDNS: &foreignDNS ['https://dns.cloudflare.com/dns-query#默认代理', 'https://dns.google/dns-query#默认代理']
 
 dns:
   enable: true
@@ -134,20 +120,8 @@ tun:
 
 # Rule Provider 通用配置
 rule_providers_common:
-  rule_providers_domain:
-    &rule_providers_domain {
-      type: http,
-      format: mrs,
-      interval: 86400,
-      behavior: domain,
-    }
-  rule_providers_ip:
-    &rule_providers_ip {
-      type: http,
-      format: mrs,
-      interval: 86400,
-      behavior: ipcidr,
-    }
+  rule_providers_domain: &rule_providers_domain { type: http, format: mrs, interval: 86400, behavior: domain }
+  rule_providers_ip: &rule_providers_ip { type: http, format: mrs, interval: 86400, behavior: ipcidr }
 
 # 定义 Rule Providers
 rule-providers:
@@ -188,6 +162,11 @@ rule-providers:
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft@cn.mrs'
     path: './ruleset/microsoft@cn.mrs'
     path-in-bundle: 'geo/geosite/microsoft@cn.mrs'
+  geolocation-cn:
+    <<: *rule_providers_domain
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-cn.mrs'
+    path: './ruleset/geolocation-cn.mrs'
+    path-in-bundle: 'geo/geosite/geolocation-cn.mrs'
   cn_additional:
     <<: *rule_providers_domain
     url: 'https://static-file-global.353355.xyz/rules/cn-additional-list.mrs'
@@ -331,6 +310,11 @@ rule-providers:
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs'
     path: './ruleset/spotify.mrs'
     path-in-bundle: 'geo/geosite/spotify.mrs'
+  ehentai:
+    <<: *rule_providers_domain
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/ehentai.mrs'
+    path: './ruleset/ehentai.mrs'
+    path-in-bundle: 'geo/geosite/ehentai.mrs'
   gfw:
     <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/gfw.mrs'
@@ -447,22 +431,19 @@ proxies_common:
 
 # 地区过滤器正则表达式定义
 group_filter:
-  HK_filter: &HK_filter { filter: '🇭🇰|港|HK|[Hh]ong\s*[Kk]ong' }
-  JP_filter: &JP_filter { filter: '🇯🇵|日本|JP|[Jj]apan' }
-  US_filter: &US_filter { filter: '🇺🇸|美|US|[Aa]merica|[Uu]nited\s*[Ss]tates' }
-  SG_filter: &SG_filter { filter: '🇸🇬|新加坡|狮城|SG|[Ss]ingapore' }
-  TW_filter: &TW_filter { filter: '🇹🇼|台湾|TW|[Tt]aiwan' }
-  low_filter:
-    &low_filter {
-      filter: '^(?!.*(?:剩|期|客户端|软件)).*(?:(?<!\d)0\.[0-5]|下载|低倍)',
-    }
+  HK_filter: &HK_filter { filter: '(?i)(🇭🇰|香港|(?<![A-Za-z])HK(?![A-Za-z])|hong\s*kong)' }
+  JP_filter: &JP_filter { filter: '(?i)(🇯🇵|日本|(?<![A-Za-z])JP(?![A-Za-z])|japan)' }
+  US_filter: &US_filter { filter: '(?i)(🇺🇸|美国|(?<![A-Za-z])US(?![A-Za-z])|[Aa]merica|[Uu]nited\s*[Ss]tates)' }
+  SG_filter: &SG_filter { filter: '(?i)(🇸🇬|新加坡|狮城|(?<![A-Za-z])SG(?![A-Za-z])|singapore)' }
+  TW_filter: &TW_filter { filter: '(?i)(🇹🇼|台湾|(?<![A-Za-z])TW(?![A-Za-z])|taiwan)' }
+  low_filter: &low_filter { filter: '^(?!.*(?:剩|期|客户端|软件)).*(?:(?<!\d)0\.[0-5]|下载|低倍)' }
   high_filter:
     &high_filter {
       filter: '(?u)(?:[*×xX✕✖⨉]\s*(?:[2-9]\d*|[1-9]\d+)(?:\.\d+)?)|(?:(?<![\d.])(?:[2-9]\d*|[1-9]\d+)(?:\.\d+)?\s*(?:倍|[*×xX✕✖⨉]))',
     }
   exclude_filter:
     &exclude_filter {
-      exclude-filter: '港|HK|🇭🇰|日本|JP|🇯🇵|美|US|🇺🇸|新加坡|SG|🇸🇬|台湾|TW|🇹🇼',
+      exclude-filter: '(?i)(🇭🇰|香港|(?<![A-Za-z])HK(?![A-Za-z])|hong\s*kong|🇯🇵|日本|(?<![A-Za-z])JP(?![A-Za-z])|japan|🇺🇸|美国|(?<![A-Za-z])US(?![A-Za-z])|[Aa]merica|[Uu]nited\s*[Ss]tates|🇸🇬|新加坡|狮城|(?<![A-Za-z])SG(?![A-Za-z])|singapore|🇹🇼|台湾|(?<![A-Za-z])TW(?![A-Za-z])|taiwan)',
       exclude-type: 'DIRECT',
     }
 
@@ -554,6 +535,11 @@ proxy-groups:
     <<: [*group_common_select, *proxies_direct]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png'
 
+  - name: 'EHentai'
+    default-selected: '美国'
+    <<: [*group_common_select, *proxies_default]
+    icon: 'https://fastly.jsdelivr.net/gh/lige47/QuanX-icon-rule@main/icon/04ProxySoft/exhentai.png'
+
   - name: 'AdBlock'
     <<: [*group_common_select, *proxies_reject]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png'
@@ -565,7 +551,7 @@ proxy-groups:
 
   - name: '直连'
     <<: *group_common_select
-    proxies: ['🇨🇳 直连 | IPv4优先', '🇨🇳 直连 | IPv6优先', '🇨🇳 直连 | 双栈']
+    proxies: ['🇨🇳 直连 | 双栈', '🇨🇳 直连 | IPv4优先', '🇨🇳 直连 | IPv6优先']
     url: 'https://connectivitycheck.platform.hicloud.com/generate_204'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China_Map.png'
 
@@ -652,6 +638,7 @@ rules:
   - RULE-SET,microsoft_cn,直连
   - DOMAIN,fsend.cn,直连
   - DOMAIN,international-gfe.download.nvidia.com,直连
+  - DOMAIN-SUFFIX,hdslb.com,直连
 
   # 广告拦截
   - RULE-SET,adblockmihomolite,AdBlock
@@ -681,6 +668,7 @@ rules:
   - DOMAIN-KEYWORD,emby,Emby
   - RULE-SET,pikpak,PikPak
   - RULE-SET,spotify,Spotify
+  - RULE-SET,ehentai,EHentai
 
   # 代理规则（IP）
   - RULE-SET,google_ip,Google,no-resolve
@@ -690,6 +678,6 @@ rules:
 
   # 兜底规则
   - RULE-SET,gfw,默认代理
-  - RULE-SET,cn_additional,直连
+  - RULE-SET,geolocation-cn,直连
   - RULE-SET,cn_ip,直连
   - MATCH,漏网之鱼

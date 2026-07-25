@@ -14,11 +14,11 @@ proxy-groups:
   # --- 主选择逻辑 ---
   - { name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🇹🇼 台湾节点, 🇪🇺 欧洲节点, 🇹🇷 土耳其节点, 🇮🇳 印度节点, 🇷🇺 俄罗斯节点, 🌏 其他地区, 🎯 全球直连] }
   
-  - { name: 🤖 人工智能, type: select, proxies: [🇺🇸 美国自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🇹🇼 台湾节点, 🇪🇺 欧洲节点, 🇹🇷 土耳其节点, 🇮🇳 印度节点, 🇷🇺 俄罗斯节点, 🌏 其他地区, 🚀 节点选择] }
+  - { name: 🤖 人工智能, type: select, proxies: [🇺🇸 美国节点, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇹🇼 台湾节点, 🇪🇺 欧洲节点, 🇹🇷 土耳其节点, 🇮🇳 印度节点, 🇷🇺 俄罗斯节点, 🌏 其他地区, 🚀 节点选择] }
 
   - { name: 📲 电报消息, type: select, proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🇹🇼 台湾节点, 🇪🇺 欧洲节点, 🇹🇷 土耳其节点, 🇮🇳 印度节点, 🇷🇺 俄罗斯节点, 🌏 其他地区] }
 
-  - { name: 🐟 漏网之鱼, type: select, url: "https://www.gstatic.com/generate_204", interval: 120, tolerance: 50, proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🇹🇼 台湾节点, 🇪🇺 欧洲节点, 🇹🇷 土耳其节点, 🇮🇳 印度节点, 🇷🇺 俄罗斯节点, 🌏 其他地区, 🎯 全球直连] }
+  - { name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🇹🇼 台湾节点, 🇪🇺 欧洲节点, 🇹🇷 土耳其节点, 🇮🇳 印度节点, 🇷🇺 俄罗斯节点, 🌏 其他地区, 🎯 全球直连] }
 
   # --- 基础组 ---
   - { name: 🎯 全球直连, type: select, proxies: [DIRECT] }
@@ -35,8 +35,6 @@ proxy-groups:
   
   - { name: 🇺🇸 美国节点, type: url-test, url: "https://www.gstatic.com/generate_204", interval: 120, tolerance: 50, include-all-providers: true, filter: "美国|美|US|(?i)States" }
 
-  - { name: 🇺🇸 美国自动选择, type: url-test, url: "https://www.gstatic.com/generate_204", interval: 120, tolerance: 50, include-all-providers: true, filter: "美国|美|US|(?i)States" }
-  
   - { name: 🇹🇼 台湾节点, type: url-test, url: "https://www.gstatic.com/generate_204", interval: 120, tolerance: 50, include-all-providers: true, filter: "台湾|台|TW|(?i)Taiwan" }
 
   # 欧洲汇总：包含英国、西班牙、意大利、荷兰、德国
@@ -52,9 +50,6 @@ proxy-groups:
   - { 
       name: 🌏 其他地区, 
       type: select,
-      url: "https://www.gstatic.com/generate_204",
-      interval: 120,
-      tolerance: 50,
       include-all-providers: true, 
       # 排除正则：将上面所有组用到的关键词放进来，剩下的就是俄罗斯、加拿大、印度、土耳其等
       exclude-filter: "香港|HK|HKG|HongKong|日本|JP|Japan|韩国|韩|KR|Korea|新加坡|坡|SG|Singapore|美国|美|US|States|台湾|台|TW|Taiwan|英国|UK|西班牙|ES|意大利|IT|荷兰|NL|德国|DE|土耳其|TR|Turkey|印度|IN|India|俄罗斯|RU|Russia"
@@ -104,6 +99,14 @@ rule-providers:
     format: text
     path: ./rule_provider/myproxy.list
     url: "https://raw.githubusercontent.com/Pililink/AirRules/refs/heads/main/clash/ruleset/proxy.list"
+    interval: 7200
+
+  myai:
+    type: http
+    behavior: classical
+    format: text
+    path: ./rule_provider/myai.list
+    url: "https://raw.githubusercontent.com/Pililink/AirRules/refs/heads/main/clash/ruleset/ai.list"
     interval: 7200
 
   ads:
@@ -280,10 +283,11 @@ rules:
   - RULE-SET,steam-cn,🎯 全球直连
   - RULE-SET,cn,🇨🇳 直连域名
   - RULE-SET,myproxy,🪜 代理域名
+  - RULE-SET,myai,🤖 人工智能
+  - RULE-SET,ai,🤖 人工智能
   - RULE-SET,microsoft,🪟 微软服务
   - RULE-SET,apple,🍎 苹果服务
   - RULE-SET,google,🇬 谷歌服务
-  - RULE-SET,ai,🤖 人工智能
   - RULE-SET,telegram,📲 电报消息
   - RULE-SET,game-download,🎮 游戏服务
   - RULE-SET,game-epic,🎮 游戏服务
