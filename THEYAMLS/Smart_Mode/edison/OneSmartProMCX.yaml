@@ -10,7 +10,7 @@
 # >>=========================================================<<
 # 名称: OneSmartPro
 # 修改: Edison
-# 更新: 2026 年 5 月 18 日
+# 更新: 2026 年 8 月 1 日
 # 覆盖AI、流媒体、TikTok等应用场景，提供多种监听协议支持
 # 配合手选节点+故转Smart算法智能选择最优节点和节点可用性保证
 # YAML模板原作者: YYDS666 | 频道: https://t.me/Pinched666 | Github地址: https://github.com/666OS/YYDS
@@ -173,7 +173,11 @@ tun:
   auto-route: true                         # 自动配置路由表
   auto-detect-interface: true              # 自动检测网络接口
   auto-redirect: true                      # 自动配置 iptables 重定向
-  endpoint-independent-nat: true           # 独立 NAT (Full Cone)，优化游戏/P2P 
+  endpoint-independent-nat: true           # 独立 NAT (Full Cone)，优化游戏/P2P
+  route-exclude-address-set:               # 绕过大陆 匹配大陆IP-CIDR（流量不进入代理） 
+    - Private-IP                           # 绕过局域网内网流量
+    - Trackers-IP                          # 绕过 BT/PT 下载服务器 IP
+    - China-IP                             # 绕过CN IP
 
 # DNS配置
 dns:

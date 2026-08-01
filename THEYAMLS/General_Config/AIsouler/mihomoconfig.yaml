@@ -96,10 +96,11 @@ hosts:
   # 解决谷歌商店无法下载的问题
   'services.googleapis.cn': ['services.googleapis.com']
 
-  # 屏蔽哔哩哔哩PCDN，解决访问视频卡顿问题
+  # 屏蔽哔哩哔哩PCDN，解决访问视频卡顿/直播问题
   '+.mcdn.bilivideo.com': ['0.0.0.0']
   '+.mcdn.bilivideo.cn': ['0.0.0.0']
   '+.edge.mountaintoys.cn': ['0.0.0.0']
+  '+.h2.smtcdns.net': ['0.0.0.0']
 
 ntp:
   enable: true
@@ -306,6 +307,11 @@ rule-providers:
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs'
     path: './ruleset/spotify.mrs'
     path-in-bundle: 'geo/geosite/spotify.mrs'
+  cryptocurrency:
+    <<: *rule_providers_domain
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-cryptocurrency.mrs'
+    path: './ruleset/cryptocurrency.mrs'
+    path-in-bundle: 'geo/geosite/category-cryptocurrency.mrs'
   ehentai:
     <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/ehentai.mrs'
@@ -536,6 +542,11 @@ proxy-groups:
     <<: [*group_common_select, *proxies_direct]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png'
 
+  - name: 'Crypto'
+    default-selected: '日本'
+    <<: [*group_common_select, *proxies_default]
+    icon: 'https://fastly.jsdelivr.net/gh/lige47/QuanX-icon-rule@main/icon/04ProxySoft/Bitcoin.png'
+
   - name: 'EHentai'
     default-selected: '美国'
     <<: [*group_common_select, *proxies_default]
@@ -666,9 +677,16 @@ rules:
   - RULE-SET,twitter,Twitter
   - RULE-SET,emby,Emby
   - DOMAIN-SUFFIX,mb3admin.com,Emby
+  - DOMAIN-SUFFIX,nubebelle.com,Emby
   - DOMAIN-KEYWORD,emby,Emby
+  - PROCESS-NAME,com.mb.android,Emby
+  - PROCESS-NAME,tv.emby.embyatv,Emby
+  - PROCESS-NAME,com.hush.yamby,Emby
+  - PROCESS-NAME,com.jellycine.app,Emby
+  - PROCESS-NAME,com.mountains.hills,Emby
   - RULE-SET,pikpak,PikPak
   - RULE-SET,spotify,Spotify
+  - RULE-SET,cryptocurrency,Crypto
   - RULE-SET,ehentai,EHentai
 
   # 代理规则（IP）
