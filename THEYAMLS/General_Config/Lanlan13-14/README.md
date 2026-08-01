@@ -8,18 +8,18 @@
 
 | 特性 | `configfull.yaml` | `configfull_lite.yaml` | `configfull_NoAd.yaml` |
 | :--- | :--- | :--- | :--- |
-| **大小** | 35.8 KB | 18.6 KB | 35.3 KB |
+| **大小** | 35.4 KB | 18.6 KB | 34.9 KB |
 | **混合端口** | 7890 | 7890 | 7890 |
 | **面板地址** | 0.0.0.0:9090 | 0.0.0.0:9090 | 0.0.0.0:9090 |
 | **运行模式** | rule | rule | rule |
 | **TUN** | ✅ | ✅ | ✅ |
 | **策略组** | **62** | **47** | **59** |
-| **规则数** | **98** | **38** | **97** |
+| **规则数** | **96** | **38** | **95** |
 
 ## 📄 配置详情
 
 #### 📝 configfull.yaml
-- **路径**: `configfull.yaml` | **大小**: 35.8 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Lanlan13-14/configfull.yaml)
+- **路径**: `configfull.yaml` | **大小**: 35.4 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Lanlan13-14/configfull.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (62个)</summary>
@@ -81,7 +81,7 @@
 </details>
 
 #### 📝 configfull_NoAd.yaml
-- **路径**: `configfull_NoAd.yaml` | **大小**: 35.3 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Lanlan13-14/configfull_NoAd.yaml)
+- **路径**: `configfull_NoAd.yaml` | **大小**: 34.9 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Lanlan13-14/configfull_NoAd.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: ✅
 <details>
 <summary>🔍 策略组 (59个)</summary>
