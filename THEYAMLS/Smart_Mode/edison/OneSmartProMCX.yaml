@@ -23,10 +23,10 @@ BaseProvider: &BaseProvider { type: http, interval: 86400, proxy: 国内直连, 
 
 
 # 策略组基础配置模板
-BaseST:   &BaseST   { type: smart,        interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true }
-BaseFB:   &BaseFB   { type: fallback,     interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true }
-BaseSL:   &BaseSL   { type: select,       interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204' }
-BaseLB:   &BaseLB   { type: load-balance, interval: 60, lazy: true, url: 'https://cp.cloudflare.com/generate_204' }
+BaseST:   &BaseST   { type: smart,        interval: 60, lazy: true, empty-fallback: "REJECT", url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true }
+BaseFB:   &BaseFB   { type: fallback,     interval: 60, lazy: true, empty-fallback: "REJECT", url: 'https://cp.cloudflare.com/generate_204', hidden: true }
+BaseSL:   &BaseSL   { type: select,       interval: 60, lazy: true, empty-fallback: "REJECT", url: 'https://cp.cloudflare.com/generate_204' }
+BaseLB:   &BaseLB   { type: load-balance, interval: 60, lazy: true, empty-fallback: "REJECT", url: 'https://cp.cloudflare.com/generate_204' }
 
 # 策略组代理列表锚点
 SelectAL: &SelectAL { type: select, proxies: [香港-故转, 香港-智能, 日本-故转, 日本-智能, 狮城-故转, 狮城-智能, 美国-故转, 美国-智能, 台湾-故转, 台湾-智能, 低倍率-故转, 高倍率-手选, 冷门节点-手选, 全部节点-手选, 国内直连] } # 全部节点组
@@ -52,6 +52,7 @@ FilterTW: &FilterTW { filter: '^(?i)(?!.*(烟台|平台|免费)).*(台|🇼🇸|
 FilterJP: &FilterJP { filter: '^(?i)(?!.*(尼日|免费)).*(日|🇯🇵|\bJP\b|JP[-_]|JP\d+|Japan|NRT|HND|KIX|CTS|FUK).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png' }
 FilterSG: &FilterSG { filter: '^(?i)(?!.*免费).*(坡|🇸🇬|Sing|SIN|\bSG\b|SG[-_]|SG\d+|XSP).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png' }
 FilterHK: &FilterHK { filter: '^(?i)(?!.*免费).*(港|🇭🇰|Hong|HKG|\bHK\b|HK[-_]|HK\d+).*$', icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
+FilterJK: &FilterJK { filter: '(?i)家宽', icon: 'https://img.icons8.com/fluency/256/home.png' }
 
 # Smart 优先级权重
 PriorityLR: &PriorityLR "0.01:9;0.1:8;0.2:7;实验:7;0.3:6;0.4:5;0.5:4;0.6:3;0.7:2;0.8:1" # 低倍率优先级
@@ -80,7 +81,7 @@ proxy-providers:
   备用服务商: {<<: *BaseProvider, url: '填写你的备用机场订阅链接', override: {additional-suffix: ' [备]'}}
 
   # 落地订阅源 - 落地服务连接，使用时请修改
-  落地服务商: {<<: *BaseProvider, url: '填写你的落地订阅源地址', override: {additional-suffix: ' [中]', dialer-proxy: 中转服务}}
+  落地服务商: {<<: *BaseProvider, url: '填写你的落地订阅源地址', override: {additional-suffix: ' [中]', dialer-proxy: 链式代理}}
   
 
 # ==================== 自建代理节点 =====================
@@ -119,7 +120,9 @@ skip-auth-prefixes:                       # 免密 IP 段 (局域网内免输密
 
 # 实验性功能
 experimental:
-  quic-go-disable-gso: true               # 禁用 GSO (解决部分 OpenWrt 固件的 UDP 兼容性问题)  
+  quic-go-disable-gso: true               # 禁用 GSO (解决部分 OpenWrt 固件的 UDP 兼容性问题) 
+  recv-msg-x: true                        # 推荐开启：高速下载时显著降低CPU占用 (MacOS)
+  send-msg-x: false                       # 推荐关闭：防止多线程大流量下内核假死 (MacOS)
      
 # 管理面板配置
 external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
@@ -223,6 +226,7 @@ dns:
 proxy-groups:
   # 应用策略层 - Select手动选择，支持多场景应用优化，使用时默认，也可修改
   - {name: Proxy,         <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Proxy.png}
+  - {name: 链式代理,       type: select,  empty-fallback: "REJECT", proxies: [香港-故转, 日本-故转, 狮城-故转, 台湾-故转, 美国-故转, 冷门节点-手选, 全部节点-手选], icon: https://img.icons8.com/fluency/256/workflow.png}
   - {name: AI,            <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/AI.png}
   - {name: ProxyGame,     <<: *SelectAL, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Game.png}
   - {name: Streaming,     <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/DomesticMedia.png}
@@ -236,11 +240,8 @@ proxy-groups:
   - {name: Crypto,        <<: *SelectAL, icon: https://raw.githubusercontent.com/chaoscard/proxyrules/master/Bitcoin.png}
   - {name: Apple,         <<: *SelectDC, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Apple.png}
   - {name: 漏网之鱼,        <<: *SelectAL, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Final.png}
-  - {name: Tracker,        <<: *SelectLR, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Download.png}
-  - {name: 国内直连,         type: select,  proxies: [DIRECT], hidden: true, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/China.png}
-
-  # 中转服务层 - LoadBalance负载均衡，提供中转服务提升连通性，选用一个或多个服务商做中转，比如 优质服务商，可通过正则表达式，过滤掉不需要的节点，使用时请修改
-  - { name: 中转服务,      <<: *BaseLB, use: [优质服务商], filter: 'HK|TW', hidden: true, icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Round_Robin.png' }
+  - {name: Tracker,       <<: *SelectLR, icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Download.png}
+  - {name: 国内直连,        type: select,  proxies: [DIRECT], hidden: true, icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/China.png}
 
   # 线路特性层 - Fallback故障转移，（适合不想节点总是被切换或者对固定IP有要求，若手动选择节点飘红 会自动切到智能策略组，保证节点可用性）,（不需要该策略可以在组名上添加 # 注释）
   - { name: 香港-故转,     <<: *BaseFB, proxies: [香港-手选, 香港-智能], icon: 'https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png' }
@@ -265,6 +266,7 @@ proxy-groups:
   - { name: 日本-手选,     <<: [*BaseSL, *FilterJP], include-all: true }
   - { name: 狮城-手选,     <<: [*BaseSL, *FilterSG], include-all: true }
   - { name: 美国-手选,     <<: [*BaseSL, *FilterUS], include-all: true }
+  - { name: 家宽-手选,     <<: [*BaseSL, *FilterJK], include-all: true }
   - { name: 低倍率-手选,    <<: [*BaseSL, *FilterLR], include-all: true }
   - { name: 高倍率-手选,    <<: [*BaseSL, *FilterHR], include-all: true }
   - { name: 冷门节点-手选,  <<: [*BaseSL, *FilterEU], include-all: true }
