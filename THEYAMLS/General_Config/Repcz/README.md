@@ -8,7 +8,7 @@
 
 | 特性 | `config.yaml` | `config_lite.yaml` |
 | :--- | :--- | :--- |
-| **大小** | 7.3 KB | 2.9 KB |
+| **大小** | 8.0 KB | 2.9 KB |
 | **混合端口** | 7893 | 7893 |
 | **面板地址** | - | - |
 | **运行模式** | rule | rule |
@@ -19,7 +19,7 @@
 ## 📄 配置详情
 
 #### 📝 config.yaml
-- **路径**: `config.yaml` | **大小**: 7.3 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Repcz/config.yaml)
+- **路径**: `config.yaml` | **大小**: 8.0 KB | [查看源码](https://github.com/LaKardo/MIHOMO_YAMLS/blob/main/THEYAMLS/General_Config/Repcz/config.yaml)
 - **模式**: rule | **TUN**: ✅ | **IPv6**: 🚫
 <details>
 <summary>🔍 策略组 (17个)</summary>
